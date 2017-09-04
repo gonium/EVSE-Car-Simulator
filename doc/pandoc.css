@@ -1,7 +1,4 @@
-/*
- * I add this to html files generated with pandoc.
- */
-
+<style type="text/css">
 html {
   font-size: 100%;
   overflow-y: scroll;
@@ -326,3 +323,4 @@ table td {
     page-break-after: avoid;
   }
 }
+</style>
