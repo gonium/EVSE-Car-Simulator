@@ -1,10 +1,8 @@
-= Elektroauto-Simulator Handbuch
-Mathias Dalheimer <md@gonium.net>
-:Author Initials: MD
-:toc:
-:icons:
-:numbered:
-:website: http://evse.gonium.net
+---
+title: 'Handbuch Elektroauto-Simulator'
+author: Mathias Dalheimer, md@gonium.net
+tags: [EVSE, Ladesäule, Elektromobilität]
+...
 
 Bevor eine Ladesäule den Ladestrom freischaltet, wird zunächst eine
 einfache Kommunikation mit dem Elektroauto aufgebaut. Dabei wird z.B.
@@ -15,4 +13,3 @@ Ladesäule mitgeteilt.
 Der Simulator dient dazu, einer Typ 2-Ladesäule ein Elektroauto
 vorzugaukeln. D
 
-// vim: set syntax=asciidoc:
