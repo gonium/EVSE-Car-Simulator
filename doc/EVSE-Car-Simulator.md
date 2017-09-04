@@ -94,7 +94,7 @@ momentan verfügbare Ladestrom kommuniziert werden.
 
 Die folgenden sechs Zustände sind möglich:
 
-| Status | Fzg. angeschlossen | Laden möglich | V CP-PE  |
+| Zustand| Fzg. angeschlossen | Laden möglich | V CP-PE  |
 |:-------|:-------------------|:--------------|---------:|
 | A      | Nein               | Nein          | 12V      |
 | B      | Ja                 | Nein          | 9V       |
@@ -112,15 +112,45 @@ verworfen wird. Auf diese Weise kann die Wallbox ein Fahrzeug von einem
 zufälligen Kurzschluss (z.B. Kabel liegt im Regen) unterscheiden. Im
 Fahrzeug wird außerdem ein Widerstand von TODO zwischen CP und PE
 geschaltet. Damit sinkt die positive Spannung auf 9V ab. Das Fahrzeug
-ist nun korrekt angeschlossen.
+ist nun korrekt angeschlossen und der Zustand B erreicht.
 
+Sobald das Fahrzeug zum Laden bereit ist wird ein weiterer Widerstand
+(TODO Ohm) zwischen CP und PE geschaltet. Damit sinkt die CP-PE-Spannung
+auf 6V, der Zustand C ist erreicht. Die Wallbox schaltet den Ladestrom
+frei, der Ladevorgang beginnt. Für das Laden von Bleibatterien kann eine
+Lüftungsanforderung gesendet werden (Zustand D). Damit signalisiert ein
+Fahrzeug, das für einen Ladevorgang eine Belüftung notwendig ist --- die
+Wallbox kann diese entweder sicherstellen oder den Ladevorgang
+abbrechen. *Achtung:* Da dieser Anwendungsfall mittlererweile recht
+selten ist auf der Platine dieser Widerstand nicht vorgesehen.
 
+Die Zustände E und F sind Fehlerzustände, in denen die Stromversorgung
+zum Elektroauto unterbrochen wird. E zeigt einen Kurzschluss zwischen CP
+und PE an. Der Zustand F kennzeichnet einen Ausfall der Wallbox, d.h.
+zwischen CP und PE besteht keine Verbindung.
 
 # Funktionen des Simulators
 
-Welche Anschlüsse
+Die Simulationsschaltung entstand, weil ich eine Softwareschnittstelle
+zu einer Wallbox entwickeln wollte. Da der Ladevorgang das mindestens
+das Durchlaufen der Zustände A-C vorsieht hab ich einen kleinen
+Simulator gebraucht, der auf dem Schreibtisch liegen kann und ein Auto
+simuliert:
+
+TODO: Photo
+
+Mit diesem Simulator kann man (fast) alle Zustände eines Elektroautos
+simulieren und die Reaktion der Wallbox messen. Über die Schalter lassen
+sich verschiedene Widerstände zwischen CP und PE einstellen sowie Fehler
+wie eine defekte Diode und einen Kurzschluss zwischen CP und PE
+simulieren.
 
 # Aufbauanleitung
+
+## Aufbau als Fahrzeugsimulator
+
+## Aufbau als Typ2-Schukoadapter
+
 
 Löten
 

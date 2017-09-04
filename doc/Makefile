@@ -27,7 +27,7 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 
 
 %.html: %.md
-	@pandoc -s -S --toc -H pandoc.css $< -o $@
+	@pandoc -s --smart --number-section --toc -H pandoc.css $< -o $@
 
 # Remove all PDF outputs
 clean:
