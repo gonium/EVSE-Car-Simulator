@@ -141,7 +141,7 @@ TODO: Photo
 
 Mit diesem Simulator kann man (fast) alle Zustände eines Elektroautos
 simulieren und die Reaktion der Wallbox messen. Über die Schalter lassen
-sich verschiedene Widerstände zwischen CP und PE einstellen sowie Fehler
+sich verschiedene Widerstände einstellen sowie Fehler
 wie eine defekte Diode und einen Kurzschluss zwischen CP und PE
 simulieren.
 
