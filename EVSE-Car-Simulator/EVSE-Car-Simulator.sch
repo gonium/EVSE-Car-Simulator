@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:EVSE-Car-Simulator-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -44,7 +45,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L R R2
+L R-RESCUE-EVSE-Car-Simulator R2
 U 1 1 59A9487E
 P 4050 5550
 F 0 "R2" V 4130 5550 50  0000 C CNN
@@ -100,7 +101,7 @@ PP
 Wire Wire Line
 	7200 2150 7050 2150
 $Comp
-L R R3
+L R-RESCUE-EVSE-Car-Simulator R3
 U 1 1 59A94F9B
 P 8750 2300
 F 0 "R3" V 8830 2300 50  0000 C CNN
@@ -139,7 +140,7 @@ Wire Wire Line
 Text GLabel 1550 5500 0    60   Input ~ 0
 CP
 $Comp
-L R R1
+L R-RESCUE-EVSE-Car-Simulator R1
 U 1 1 59A954A9
 P 2150 5500
 F 0 "R1" V 2230 5500 50  0000 C CNN
