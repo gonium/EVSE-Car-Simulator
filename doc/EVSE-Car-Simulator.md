@@ -21,7 +21,7 @@ vorzugaukeln.  Mit der hier vorgestellten Platine kann man z.B.
 * einen Ladesäule-nach-Schuko-Adapter bauen oder
 * einen eigenen Laderegler an Typ2-Ladesäulen anschließen.
 
-Der Simulator setzt die  DIN EN 61851 um.
+Der Simulator setzt das Ladeprotokoll nach DIN EN 61851 bzw. TODO: J... um.
 
 TODO: Hinweise auf Platine
 
@@ -137,13 +137,9 @@ Die Platine entstand, weil ich eine Softwareschnittstelle
 zu einer Wallbox entwickeln wollte. Da der Ladevorgang das mindestens
 das Durchlaufen der Zustände A-C vorsieht hab ich einen kleinen
 Simulator gebraucht, der auf dem Schreibtisch liegen kann und ein Auto
-simuliert:
-
-TODO: Photo
-
-Mit diesem Simulator kann man (fast) alle Zustände eines Elektroautos
-simulieren und die Reaktion der Wallbox messen. Über die Schalter lassen
-sich verschiedene Widerstände einstellen sowie Fehler
+simuliert. Mit diesem Simulator kann man (fast) alle Ladezustände eines
+Elektroautos simulieren und die Reaktion der Wallbox messen. Über die
+Schalter lassen sich verschiedene Widerstände einstellen sowie Fehler
 wie eine defekte Diode und einen Kurzschluss zwischen CP und PE
 simulieren.
 
