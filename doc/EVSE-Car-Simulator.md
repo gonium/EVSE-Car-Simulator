@@ -6,7 +6,7 @@ tags: [EVSE, Ladesäule, Elektromobilität]
 
 ---
 
-TODO: Bild Platine
+![](img/pcb-rendering.png)
 
 Bevor eine Ladesäule den Ladestrom freischaltet, wird zunächst eine
 einfache Kommunikation mit dem Elektroauto aufgebaut. Dabei wird z.B.
@@ -232,7 +232,16 @@ müssen bedacht werden:
 	 (Strombelastbarkeit etc.)
 
 
-TODO: Grundlegender Aufbau: Widerstände und Diode einlöten
+Für alle Aufbauten gilt: Die Widerstände und die Diode müssen eingelötet
+werden. R1 (2k7 Ohm) und R2 (1k2 Ohm) sind bei jedem Aufbau gleich. Der
+Wert für R3 richtet sich nach der Strombelastbarkeit des
+Komplettsystems.  Will man z.B. maximal 13A entnehmen, so lötet man
+einen 1k5 Ohm Widerstand an die Anschlüsse für R3.  Bei der Diode muss
+darauf geachtet werden, das sie richtig herum eingelötet wird --- der
+Strich auf dem Diodengehäuse muss in die gleiche Richtung zeigen wie auf
+der Platine markiert.
+
+Mit diesem Grundaufbau kann es nun je nach Anwendung weitergehen.
 
 ## Aufbau als Typ2-Schukoadapter
 
@@ -240,24 +249,45 @@ Hierüber kann man z.B. ein Pedelec-Ladegerät an eine Ladesäule
 anschließen. Da aus einer Typ2-Steckdose mehr Strom entnommen werden
 kann, als eine Schukokupplung maximal zur Verfügung stellen darf, muss
 unbedingt eine Sicherung vorgesehen werden. Dazu eignet sich z.B. ein
-Leitungsschutzschalter (10A oder 16A, A-Charakteristik) oder eine flinke
-Schmelzsicherung (<10A). Diese muss in den Außenleiter integriert
+Leitungsschutzschalter (10A, A-Charakteristik) oder eine flinke
+Schmelzsicherung (10A). Diese muss in die Außenleiter integriert
 werden.
 
 Als erstes werden CP, PP und PE an die Platine angeschlossen.
 Zwischen PP und PE muss der entsprechende Widerstand für die
-Strombelastbarkeit eingelötet werden --- entweder direkt auf der Platine
-oder im Stecker. Zusätzlich wird R1 mit 2k7 Ohm und R2 mit 1k2 Ohm
-bestückt. Die Brücken J2 und J4 werden mit einer Drahtbrücke permanent
-geschlossen. Abschließend muss noch die Diode D1 bestückt werden. Alle
-anderen Anschlüsse bleiben frei.
+Strombelastbarkeit eingelötet werden --- entweder wie oben beschrieben
+direkt auf der Platine oder im Stecker. Für diese Anwendung soll immer
+die Ladebereitschaft signalisiert werden: Die Brücken J2 und J4 werden
+mit einer Drahtbrücke permanent geschlossen. Alle anderen Anschlüsse
+bleiben frei.
 
 ## Aufbau als Fahrzeugsimulator
 
+![](img/fahrzeugsimulator.jpg)
 
+Für den oben gezeigten Fahrzeugsimulator sollte man verschiedene
+Kippschalter vorsehen, welche die Widerstände für den Fahrzeugzustand
+gezielt zuschalten. Auch ein kurzgeschlossener CP oder ein Diodenfehler
+können separat simuliert werden. Es werden also insgesamt 4 Kippschalter
+benötigt. Außerdem zeigt eine Glimmlampe an, ob ein Ladestrom anliegt.
+Um die Fehlersuche zu erleichtern kann man auch Messbuchsen für den
+Anschluss eines Multimeters oder Oszilloskops vorsehen.
 
+Die Kippschalter werden wie folgt verdrahtet:
 
+| Text     | Anschluss| Funktion Kippschalter      |
+|:---------|:---------|:---------------------------|
+| D-fault  | J1       | Test Diodenfehler          |
+| EV detect| J2       | Fahrzeug angeschlossen (R1)|
+| CP short | J3       | Test CP Kurzschluss        |
+| EV ready | J4       | Fahrzeug ladebereit (R2)   |
 
-Löten
+An die Anschlüsse CP-D wird eine Messbuchse für CP, an PE-D die Messbuchse
+für PE angeschlossen. Vom Ladekabel werden nun PP, CP und PE an die
+Platine gelötet. Hierfür muss man gegebenenfalls eine dünnere Litze über
+eine Wagoklemme o.ä. mit dem dickerem Schutzleiter verbinden. Die
+Glimmlampe installiert man zwischen L1 und N.
 
 # Bezugsquelle
+
+
