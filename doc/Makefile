@@ -32,6 +32,9 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 	  -s --smart --number-section --toc -H pandoc.css \
 	  --email-obfuscation=javascript
 
+deploy:
+	rsync -rzh *.html img md@evsim.gonium.net:/var/www/evsim.gonium.net
+
 # Remove all PDF outputs
 clean:
 	@rm $(PDFS)
@@ -41,10 +44,6 @@ clean:
 
 # Remove all PDF outputs then build them again
 rebuild : clean all
-
-# Crop PDF images
-crop:
-	@pdfcrop --margins '1 1 1 1' Gantt-Diagramm.pdf Gantt-Diagramm-cropped.pdf
 
 help:
 	@echo "See http://pandoc.org/README.html#pandocs-markdown"
