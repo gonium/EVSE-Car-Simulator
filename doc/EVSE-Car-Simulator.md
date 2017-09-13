@@ -1,6 +1,6 @@
 ---
 title: 'EVSim Elektroauto-Simulator'
-author: Mathias Dalheimer, md@gonium.net
+author: Mathias Dalheimer, [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Frage)
 tags: [EVSE, Ladesäule, Elektromobilität]
 ...
 
@@ -10,7 +10,7 @@ tags: [EVSE, Ladesäule, Elektromobilität]
 
 Bevor eine Ladesäule den Ladestrom freischaltet, wird zunächst eine
 einfache Kommunikation mit dem Elektroauto aufgebaut. Dabei wird z.B.
-geprüft, ob wirklich ein Elektroauto angeschlossen ist. Andererseits
+geprüft, ob wirklich ein Elektroauto angeschlossen ist. Außerdem
 wird dem Elektroauto auch der maximal verfügbare Ladestrom von der
 Ladesäule mitgeteilt.
 
@@ -21,10 +21,17 @@ vorzugaukeln.  Mit der hier vorgestellten Platine kann man z.B.
 * einen Ladesäule-nach-Schuko-Adapter bauen oder
 * einen eigenen Laderegler an Typ2-Ladesäulen anschließen.
 
-Der Simulator setzt das Ladeprotokoll nach DIN EN 61851 bzw. TODO: J... um.
-
-TODO: Hinweise auf Platine
-
+Der Simulator implementiert das Ladeprotokoll nach DIN EN 61851 bzw.
+J1772. Die passende Platine kann für eigene Experimente gekauft werden,
+siehe [Bezugsquelle](#bezugsquelle).  Die Platine entstand, weil ich
+eine Softwareschnittstelle zu einer Wallbox entwickeln wollte. Da der
+Ladevorgang das mindestens das Durchlaufen der Zustände A-C vorsieht hab
+ich einen kleinen Simulator gebraucht, der auf dem Schreibtisch liegen
+kann und ein Auto simuliert. Mit diesem Simulator kann man (fast) alle
+Ladezustände eines Elektroautos simulieren und die Reaktion der Wallbox
+messen. Über die Schalter lassen sich verschiedene Widerstände
+einstellen sowie Fehler wie eine defekte Diode und einen Kurzschluss
+zwischen CP und PE simulieren.
 
 ---
 
@@ -32,7 +39,7 @@ TODO: Hinweise auf Platine
 
 Eine Typ 2-Steckdose beinhaltet nicht nur die Stromversorgung, sondern
 auch zwei Kommunikationsleitungen. Über diese werden folgende Funktionen
-koordiniert (siehe DIN EN 61851-1):
+koordiniert (vgl. DIN EN 61851-1):
 
 * Überprüfung, dass das Fahrzeug vorschriftsmäßig angeschlossen ist,
 * ständige Überwachung des Schutzleiterdurchgangs,
@@ -42,12 +49,12 @@ koordiniert (siehe DIN EN 61851-1):
 * Einstellen des Ladestroms,
 * Sperren/Freigeben der Stecker.
 
-Ein Typ2-Stecker besteht aus:
+Ein Typ2-Stecker benutzt folgenden Leitungen:
 
 * Einem Drehstromanschluss, also die drei Außenleiter L1, L2 und L3,
 	einem Neutralleiter N sowie einer Schutzerde PE.
-* Einer Signalleitung "Proximity Plug" (PP), über welche ein eingestecktes
-	Kabel sowie dessen Strombelastbarkeit erkannt wird.
+* Einer Signalleitung "Proximity Plug" (PP), über welche
+	die Strombelastbarkeit des Kabels erkannt wird.
 * Einer Signalleitung "Control Pilot" (CP). Auf dieser Leitung werden
 	Sicherheitsprüfungen durchgeführt sowie der zu verwendende Ladestrom dem
 	Elektroauto mitgeteilt. Das Elektroauto signalisiert außerdem, ob es
@@ -60,7 +67,7 @@ des Fahrzeugs sind nur sehr wenige Komponenten erforderlich.
 ## Der Proximity Plug (PP)
 
 Der maximal zulässige Ladestrom, den das Kabel verkraftet, wird über
-einen Widerstand zwischen PP und der Schutzerde PE kodiert. Nach IEC
+einen Widerstand zwischen PP und der Schutzerde PE kodiert. Nach DIN EN
 61851-1 sind folgende Widerstände zulässig:
 
 | Widerstand | Maximaler Ladestrom |
@@ -80,34 +87,34 @@ Belastbarkeit von mehr als 0,5 Watt haben.
 selbst integriert. Das Gehäuse des Steckers bietet viel Platz für einen
 Widerstand --- mit etwas Schrumpfschlauch entsteht so ein robuster und
 sicherer Aufbau. Die EVSim-Platine bietet aber ebenso einen Platz für
-einen Widerstand. Der Anwendungsfall bestimmt die beste
-Umsetzungsvariante.
+den Widerstand.
 
 ## Der Control Pilot (CP)
 
-TODO: Bild Widerstände etc.
 
-Der Control Pilot setzt alle o.a. Funktionen um. Dabei schaltet das
-Elektroauto zwei verschiedene Widerstände zwischen CP und PE. Zusätzlich
-wird eine Diode in CP gesetzt.  Die Wallbox erzeugt ein
+Der Control Pilot setzt die restlichen Funktionen um. Dabei
+schaltet das Elektroauto zwei verschiedene Widerstände zwischen CP und
+PE. Zusätzlich wird eine Diode in CP gesetzt.  Die Wallbox erzeugt ein
 Kleinspannungssignal, welches dann durch die Widerstände und die Diode
 verändert wird. Dadurch können verschiedene Zustände detektiert und der
 momentan verfügbare Ladestrom kommuniziert werden.
+
+![](img/Ladephasen.png)
 
 Die folgenden sechs Zustände sind möglich:
 
 | Zustand| Fzg. angeschlossen | Laden möglich | Spannung CP-PE  |
 |:-------|:-------------------|:--------------|----------------:|
 | A      | Nein               | Nein          | 12V             |
-| B      | Ja                 | Nein          | 9V              |
-| C      | Ja                 | Ja            | 6V              |
-| D      | Ja                 | Ja            | 3V              |
+| B      | Ja                 | Nein          | 9V/-12V         |
+| C      | Ja                 | Ja            | 6V/-12V         |
+| D      | Ja                 | Ja            | 3V/-12V         |
 | E      | Ja                 | Nein          | 0V              |
 | F      | Ja                 | Nein          | n/a             |
 
 Im Zustand A ist kein Fahrzeug angeschlossen. Die Wallbox legt eine
 Gleichspannung von 12V zwischen CP und PE an. Sobald ein Kabel
-eingesteckt wird, wechselt die Wallbox in den Status B. Die
+eingesteckt wird, wechselt die Wallbox in den Status B: Die
 Gleichspannung wird durch ein PWM-Signal mit 1kHz ersetzt, zwischen -12V
 und 12V. Die Diode im Fahrzeug bewirkt, das der negative Anteil
 verworfen wird. Auf diese Weise kann die Wallbox ein Fahrzeug von einem
@@ -123,8 +130,8 @@ frei, der Ladevorgang beginnt. Für das Laden von Bleibatterien kann eine
 Lüftungsanforderung gesendet werden (Zustand D). Damit signalisiert ein
 Fahrzeug, das für einen Ladevorgang eine Belüftung notwendig ist --- die
 Wallbox kann diese entweder sicherstellen oder den Ladevorgang
-abbrechen. *Achtung:* Da dieser Anwendungsfall mittlererweile recht
-selten ist auf der Platine dieser Widerstand nicht vorgesehen.
+abbrechen. *Achtung:* Dieser Anwendungsfall ist mittlererweile recht
+selten. Daher ist auf der Platine dieser Widerstand nicht vorgesehen.
 
 Die Zustände E und F sind Fehlerzustände, in denen die Stromversorgung
 zum Elektroauto unterbrochen wird. E zeigt einen Kurzschluss zwischen CP
@@ -132,16 +139,6 @@ und PE an. Der Zustand F kennzeichnet einen Ausfall der Wallbox, d.h.
 zwischen CP und PE besteht keine Verbindung.
 
 # Funktionsweise der Platine
-
-Die Platine entstand, weil ich eine Softwareschnittstelle
-zu einer Wallbox entwickeln wollte. Da der Ladevorgang das mindestens
-das Durchlaufen der Zustände A-C vorsieht hab ich einen kleinen
-Simulator gebraucht, der auf dem Schreibtisch liegen kann und ein Auto
-simuliert. Mit diesem Simulator kann man (fast) alle Ladezustände eines
-Elektroautos simulieren und die Reaktion der Wallbox messen. Über die
-Schalter lassen sich verschiedene Widerstände einstellen sowie Fehler
-wie eine defekte Diode und einen Kurzschluss zwischen CP und PE
-simulieren.
 
 Der komplette [Schaltplan ist hier (PDF)](img/Schaltplan.pdf). Die
 einzelnen Komponenten stelle ich im Folgenden vor. Zunächst einmal
@@ -203,10 +200,12 @@ Fehler muss die Wallbox den Strom abschalten.
 
 # Aufbauanleitung
 
-*Hinweis: Jeder ist für seine Aufbauten selbst verantwortlich. Die im
-nachfolgenden dargestellten Aufbauvarianten sind nur als Denkanstoß zu
-verstehen und dienen nicht als Bauanleitung für betriebsfertige Geräte.
-Insbesondere hafte ich nicht für Eigenkonstruktionen!*
+*ACHTUNG: Netzspannung kann tödlich sein. Jeder ist für seine Aufbauten
+selbst verantwortlich. Die im nachfolgenden dargestellten
+Aufbauvarianten sind nur als Denkanstoß zu verstehen und dienen nicht
+als Bauanleitung für betriebsfertige Geräte.  Insbesondere hafte ich
+nicht für alle Schäden, die durch den Einsatz dieser Schaltung
+entstehen!*
 
 Die Platine kann einerseits als Fahrzeugsimulator, andererseits auch als
 Ladeadapter für beliebige Eigenentwicklungen eingesetzt werden. Im
@@ -271,12 +270,12 @@ Anschluss eines Multimeters oder Oszilloskops vorsehen.
 
 Die Kippschalter werden wie folgt verdrahtet:
 
-| Text     | Anschluss| Funktion Kippschalter      |
-|:---------|:---------|:---------------------------|
-| D-fault  | J1       | Test Diodenfehler          |
-| EV detect| J2       | Fahrzeug angeschlossen (R1)|
-| CP short | J3       | Test CP Kurzschluss        |
-| EV ready | J4       | Fahrzeug ladebereit (R2)   |
+| Text     | Anschluss| Funktion Kippschalter      | Ladestrom |
+|:---------|:---------|:---------------------------|:----------|
+| D-fault  | J1       | Test Diodenfehler          | aus       |
+| EV detect| J2       | Fahrzeug angeschlossen (R1)| aus       |
+| CP short | J3       | Test CP Kurzschluss        | aus       |
+| EV ready | J4       | Fahrzeug ladebereit (R2)   | ein       |
 
 An die Anschlüsse CP-D wird eine Messbuchse für CP, an PE-D die Messbuchse
 für PE angeschlossen. Vom Ladekabel werden nun PP, CP und PE an die
@@ -286,4 +285,26 @@ Glimmlampe installiert man zwischen L1 und N.
 
 # Bezugsquelle
 
+Die Designdaten (und diese Anleitung) sind Open Source und unter
+[https://github.com/gonium/EVSE-Car-Simulator](https://github.com/gonium/EVSE-Car-Simulator)
+verfügbar. Die Schaltung kann man natürlich recht schnell auf einer
+Lochrasterplatine aufbauen. Wer lieber einen kleinen Bausatz haben
+möchte, kann diesen bestellen. Der Bausatz enthält:
+
+* Eine Platine wie oben beschrieben, inklusive Lötstoplack und
+Beschriftung (TODO: Abmessungen)
+* Ein Set Widerstände R1-R3 mit verschiedenen Werten für R3, um
+unterschiedliche Strombelastbarkeiten kodieren zu können.
+* Die Schutzdiode (1N4007).
+
+Der Bausatz kann bei Mathias Dalheimer bestellt werden
+und kostet inklusive Versand 9 Euro. Dazu einfach eine Mail an
+[evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) schreiben.
+
+# Versionshistorie
+
+| Wann       | Was                                              |
+|:-----------|:-------------------------------------------------|
+| 2017.09.09 | V0.2: Bohrungen für CP/PP/PE vergrößert          |
+| 2017.09.04 | V0.1: Initiales Layout                           |
 

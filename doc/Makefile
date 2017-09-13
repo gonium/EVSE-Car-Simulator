@@ -16,7 +16,8 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 	@echo "Zeichen im Artikel: `wc -m $<`"
 	@pandoc $< -o $@ -s --smart --number-section --dpi 300 \
 	  -V documentclass:scrartcl -V fontsize:12pt \
-	  -V papersize:A4 -V lang:de -V toc
+	  -V papersize:A4 -V lang:de -V toc \
+	  -fmarkdown-implicit_figures
 
 %.docx: %.md
 	@pandoc $< -o $@ --smart
@@ -27,7 +28,9 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 
 
 %.html: %.md
-	@pandoc -s --smart --number-section --toc -H pandoc.css $< -o $@
+	@pandoc $< -o $@ \
+	  -s --smart --number-section --toc -H pandoc.css \
+	  --email-obfuscation=javascript
 
 # Remove all PDF outputs
 clean:
