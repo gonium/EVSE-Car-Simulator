@@ -30,7 +30,7 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 %.html: %.md
 	@pandoc $< -o $@ \
 	  -s --smart --number-section --toc -H pandoc.css \
-	  --email-obfuscation=javascript
+	  --email-obfuscation=javascript --to html5
 
 deploy:
 	rsync -rzh *.html img md@evsim.gonium.net:/var/www/evsim.gonium.net
