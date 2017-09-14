@@ -1,6 +1,7 @@
 # EVSE-Car-Simulator
 
-A simple car simulator PCB for testing EVSE. This repository contains:
+A simple car simulator PCB for testing EVSE, implements DIN EN 61851 and
+J1772. This repository contains:
 
 1. The hardware design files (KICAD)
 2. The documentation for the car simulator.
@@ -10,7 +11,8 @@ information.
 
 # License
 
-This project is (c) 2017 Mathias Dalheimer and available under the MIT license. In short:
+This project is (c) 2017 Mathias Dalheimer and available under the MIT
+license. In short:
 
 Permissions:
 * Commercial use ok
