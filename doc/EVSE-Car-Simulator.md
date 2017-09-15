@@ -103,14 +103,14 @@ momentan verfügbare Ladestrom kommuniziert werden.
 
 Die folgenden sechs Zustände sind möglich:
 
-| Zustand| Fzg. angeschlossen | Laden möglich | Spannung CP-PE  |
-|:-------|:-------------------|:--------------|----------------:|
-| A      | Nein               | Nein          | 12V             |
-| B      | Ja                 | Nein          | 9V/-12V         |
-| C      | Ja                 | Ja            | 6V/-12V         |
-| D      | Ja                 | Ja            | 3V/-12V         |
-| E      | Ja                 | Nein          | 0V              |
-| F      | Ja                 | Nein          | n/a             |
+| Zustand| Fzg. angeschlossen | Laden möglich | Spannung CP-PE  | Frequenz |
+|:-------|:-------------------|:--------------|----------------:|:---------|
+| A      | Nein               | Nein          | 12V             |DC        |
+| B      | Ja                 | Nein          | 9V/-12V         |1 kHz     |
+| C      | Ja                 | Ja            | 6V/-12V         |1 kHz     |
+| D      | Ja                 | Ja            | 3V/-12V         |1 kHz     |
+| E      | Ja                 | Nein          | 0V              | -        |
+| F      | Ja                 | Nein          | -/-12V          | -        |
 
 Im Zustand A ist kein Fahrzeug angeschlossen. Die Wallbox legt eine
 Gleichspannung von 12V zwischen CP und PE an. Sobald ein Kabel
@@ -225,7 +225,6 @@ müssen bedacht werden:
 4. Alle Komponenten müssen isoliert sein.
 5. Alle Komponenten müssen richtig dimensioniert sein
 	 (Strombelastbarkeit etc.)
-
 
 Für alle Aufbauten gilt: Die Widerstände und die Diode müssen eingelötet
 werden. R1 (2k7 Ohm) und R2 (1k2 Ohm) sind bei jedem Aufbau gleich. Der
