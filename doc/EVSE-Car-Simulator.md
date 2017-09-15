@@ -290,8 +290,7 @@ verfügbar. Die Schaltung kann man natürlich recht schnell auf einer
 Lochrasterplatine aufbauen. Wer lieber einen kleinen Bausatz haben
 möchte, kann diesen bestellen. Der Bausatz enthält:
 
-* Eine Platine wie oben beschrieben, inklusive Lötstoplack und
-Beschriftung (TODO: Abmessungen)
+* Eine Platine (37x18mm) wie oben beschrieben TODO: Bild Leerplatine
 * Ein Set Widerstände R1-R3 mit verschiedenen Werten für R3, um
 unterschiedliche Strombelastbarkeiten kodieren zu können.
 * Die Schutzdiode (1N4007).
