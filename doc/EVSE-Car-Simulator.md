@@ -21,7 +21,7 @@ vorzugaukeln.  Mit der hier vorgestellten Platine kann man z.B.
 
 Natürlich kann man aber auch ein Waffeleisen damit betreiben:
 
-TODO: Video einbetten.
+<iframe width="640" height="360" src="https://www.youtube.com/embed/pUEp3uWAWqY?rel=0" frameborder="0" allowfullscreen></iframe>
 
 Der Simulator implementiert das Ladeprotokoll nach DIN EN 61851 bzw.
 J1772. Die passende Platine kann für eigene Experimente gekauft werden,
