@@ -4,8 +4,6 @@ author: Mathias Dalheimer, [evse@gonium.net](mailto:evse@gonium.net?subject=EVSi
 tags: [EVSE, Ladesäule, Elektromobilität]
 ...
 
----
-
 ![](img/pcb-rendering.png)
 
 Bevor eine Ladesäule den Ladestrom freischaltet, wird zunächst eine
@@ -20,6 +18,10 @@ vorzugaukeln.  Mit der hier vorgestellten Platine kann man z.B.
 * Einen einfachen Funktionstester für Wallboxen bauen,
 * einen Ladesäule-nach-Schuko-Adapter bauen oder
 * einen eigenen Laderegler an Typ2-Ladesäulen anschließen.
+
+Natürlich kann man aber auch ein Waffeleisen damit betreiben:
+
+TODO: Video einbetten.
 
 Der Simulator implementiert das Ladeprotokoll nach DIN EN 61851 bzw.
 J1772. Die passende Platine kann für eigene Experimente gekauft werden,
@@ -235,25 +237,9 @@ darauf geachtet werden, das sie richtig herum eingelötet wird --- der
 Strich auf dem Diodengehäuse muss in die gleiche Richtung zeigen wie auf
 der Platine markiert.
 
+TODO: Bild
+
 Mit diesem Grundaufbau kann es nun je nach Anwendung weitergehen.
-
-## Aufbau als Typ2-Schukoadapter
-
-Hierüber kann man z.B. ein Pedelec-Ladegerät an eine Ladesäule
-anschließen. Da aus einer Typ2-Steckdose mehr Strom entnommen werden
-kann, als eine Schukokupplung maximal zur Verfügung stellen darf, muss
-unbedingt eine Sicherung vorgesehen werden. Dazu eignet sich z.B. ein
-Leitungsschutzschalter (10A, A-Charakteristik) oder eine flinke
-Schmelzsicherung (10A). Diese muss in die Außenleiter integriert
-werden.
-
-Als erstes werden CP, PP und PE an die Platine angeschlossen.
-Zwischen PP und PE muss der entsprechende Widerstand für die
-Strombelastbarkeit eingelötet werden --- entweder wie oben beschrieben
-direkt auf der Platine oder im Stecker. Für diese Anwendung soll immer
-die Ladebereitschaft signalisiert werden: Die Brücken J2 und J4 werden
-mit einer Drahtbrücke permanent geschlossen. Alle anderen Anschlüsse
-bleiben frei.
 
 ## Aufbau als Fahrzeugsimulator
 
@@ -267,6 +253,10 @@ benötigt. Außerdem zeigt eine Glimmlampe an, ob ein Ladestrom anliegt.
 Um die Fehlersuche zu erleichtern kann man auch Messbuchsen für den
 Anschluss eines Multimeters oder Oszilloskops vorsehen.
 
+Für einen sauberen Aufbau empfehle ich die [Kippschalter MS500A (Reichelt-Link)](https://www.reichelt.de/Kippschalter/MS-500A/3/index.html?ACTION=3&GROUPID=7584&ARTICLE=13150&OFFSET=16&) mit [zweipoligen Platinensteckverbindern (Reichelt-Link)](https://www.reichelt.de/Platinen-Steckverbinder/PS-25-2G-WS/3/index.html?ACTION=3&GROUPID=7525&ARTICLE=14825&OFFSET=16&) zu montieren:
+
+TODO: Bild
+
 Die Kippschalter werden wie folgt verdrahtet:
 
 | Text     | Anschluss| Funktion Kippschalter      | Ladestrom |
@@ -274,13 +264,22 @@ Die Kippschalter werden wie folgt verdrahtet:
 | D-fault  | J1       | Test Diodenfehler          | aus       |
 | EV detect| J2       | Fahrzeug angeschlossen (R1)| aus       |
 | CP short | J3       | Test CP Kurzschluss        | aus       |
-| EV ready | J4       | Fahrzeug ladebereit (R2)   | ein       |
+| EV ready | J4       | Fahrzeug ladebereit (R2)   | ein (falls J2 ein) |
 
 An die Anschlüsse CP-D wird eine Messbuchse für CP, an PE-D die Messbuchse
 für PE angeschlossen. Vom Ladekabel werden nun PP, CP und PE an die
 Platine gelötet. Hierfür muss man gegebenenfalls eine dünnere Litze über
 eine Wagoklemme o.ä. mit dem dickerem Schutzleiter verbinden. Die
 Glimmlampe installiert man zwischen L1 und N.
+
+Wenn man eine Schukokupplung installiert, kann man noch ein Gerät an
+den Simulator anschließen. Da aus einer Typ2-Steckdose mehr Strom
+entnommen werden kann, als eine Schukokupplung maximal zur Verfügung
+stellen darf, muss unbedingt eine Sicherung vorgesehen werden. Dazu
+eignet sich z.B. ein Leitungsschutzschalter (10A, A-Charakteristik) oder
+eine flinke Schmelzsicherung (10A). Schutz- und Neutralleiter werden
+einfach auf die Schukokupplung aufgelegt, während L1 über die Sicherung
+mit der Kupplung verbunden wird.
 
 # Bezugsquelle
 
@@ -296,8 +295,9 @@ unterschiedliche Strombelastbarkeiten kodieren zu können.
 * Die Schutzdiode (1N4007).
 
 Der Bausatz kann bei Mathias Dalheimer bestellt werden
-und kostet inklusive Versand 9 Euro. Dazu einfach eine Mail an
-[evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) schreiben.
+und kostet inklusive Versand in Deutschland 8 Euro. Zum Bestellen einfach eine
+Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
+schreiben.
 
 # Versionshistorie
 
