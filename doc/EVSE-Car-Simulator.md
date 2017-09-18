@@ -237,7 +237,7 @@ darauf geachtet werden, das sie richtig herum eingelötet wird --- der
 Strich auf dem Diodengehäuse muss in die gleiche Richtung zeigen wie auf
 der Platine markiert.
 
-TODO: Bild
+![](img/platine-bestueckt.jpg)
 
 Mit diesem Grundaufbau kann es nun je nach Anwendung weitergehen.
 
@@ -255,7 +255,7 @@ Anschluss eines Multimeters oder Oszilloskops vorsehen.
 
 Für einen sauberen Aufbau empfehle ich die [Kippschalter MS500A (Reichelt-Link)](https://www.reichelt.de/Kippschalter/MS-500A/3/index.html?ACTION=3&GROUPID=7584&ARTICLE=13150&OFFSET=16&) mit [zweipoligen Platinensteckverbindern (Reichelt-Link)](https://www.reichelt.de/Platinen-Steckverbinder/PS-25-2G-WS/3/index.html?ACTION=3&GROUPID=7525&ARTICLE=14825&OFFSET=16&) zu montieren:
 
-TODO: Bild
+![](img/platine-schalter.jpg)
 
 Die Kippschalter werden wie folgt verdrahtet:
 
@@ -289,7 +289,8 @@ verfügbar. Die Schaltung kann man natürlich recht schnell auf einer
 Lochrasterplatine aufbauen. Wer lieber einen kleinen Bausatz haben
 möchte, kann diesen bestellen. Der Bausatz enthält:
 
-* Eine Platine (37x18mm) wie oben beschrieben TODO: Bild Leerplatine
+* Eine Platine (37x18mm) wie oben beschrieben:
+![](img/platine-leer.jpg)
 * Ein Set Widerstände R1-R3 mit verschiedenen Werten für R3, um
 unterschiedliche Strombelastbarkeiten kodieren zu können.
 * Die Schutzdiode (1N4007).
