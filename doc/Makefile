@@ -30,9 +30,10 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 %.html: %.md
 	@pandoc $< -o $@ \
 	  -s --smart --number-section --toc -H pandoc.css \
-	  --email-obfuscation=javascript --to html5
+	  --email-obfuscation=javascript --to html5 \
+	  -H googleanalytics.js
 
-deploy:
+deploy: all
 	rsync -rzh *.html img md@evsim.gonium.net:/var/www/evsim.gonium.net
 
 # Remove all PDF outputs
