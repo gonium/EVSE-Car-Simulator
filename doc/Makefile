@@ -17,7 +17,7 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 	@pandoc $< -o $@ -s --smart --number-section --dpi 300 \
 	  -V documentclass:scrartcl -V fontsize:12pt \
 	  -V papersize:A4 -V lang:de -V toc \
-	  -fmarkdown-implicit_figures
+	  -fmarkdown-implicit_figures 
 
 %.docx: %.md
 	@pandoc $< -o $@ --smart
@@ -31,7 +31,7 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 	@pandoc $< -o $@ \
 	  -s --smart --number-section --toc -H pandoc.css \
 	  --email-obfuscation=javascript --to html5 \
-	  -H googleanalytics.js
+	  -H googleanalytics.js --mathjax
 
 deploy: all
 	rsync -rzh *.html img md@evsim.gonium.net:/var/www/evsim.gonium.net

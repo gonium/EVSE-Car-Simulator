@@ -140,6 +140,22 @@ zum Elektroauto unterbrochen wird. E zeigt einen Kurzschluss zwischen CP
 und PE an. Der Zustand F kennzeichnet einen Ausfall der Wallbox, d.h.
 zwischen CP und PE besteht keine Verbindung.
 
+Die Ladesäule teilt dem Auto den zur Verfügung stehenden Ladestrom mit.
+Dafür wird der Duty Cycle des PWM-Signals angepasst. Dabei gibt es eine
+Besonderheit: Die ISO 15118 legt einen Duty Cycle von 5% fest, wenn der
+Ladevorgang digital ausgehandelt werden soll (z.B. bei CCS). Es gilt:
+
+| Ladestrom | Duty Cycle (+/- 1%) |
+|:----------|:--------------------|
+| Digitales Protokoll | 5% |
+| 6A - 51A  | $$ dc = \frac{Current [A]}{0.6} $$ entspricht 10%--85% |
+| 51A - 80A  | $$dc = \frac{Current [A]}{2.5} + 64$$ entspricht 85%--96%|
+
+Ein Duty Cycle kleiner 5% oder größer 96% ist nicht zulässig. Grafisch
+sieht das so aus:
+
+![](img/dutycycle.png)
+
 # Funktionsweise der Platine
 
 Der komplette [Schaltplan ist hier (PDF)](img/Schaltplan.pdf). Die
@@ -156,8 +172,9 @@ separaten Anschluss an:
 ![](img/pe-diag.png)
 
 Dort kann man z.B. Messbuchsen verbinden, um den Control Pilot
-beobachten zu können. Diese Anschlussmöglichkeit kann aber auch
-ungenutzt bleiben.
+beobachten zu können. So kann man den Duty Cycle ausrechnen und z.B.
+nachprüfen, ob der Ladestrom von der Ladestation korrekt signalisiert
+wird. Diese Anschlussmöglichkeit kann aber auch ungenutzt bleiben.
 
 Um den Strom des Ladekabels festzulegen wird ein Widerstand zwischen PP und PE benötigt. Dieser wird auf der Platine R3 genannt und wird mit 220 Ohm (min. 0,5 Watt, für 32 A Strombelastbarkeit) bzw. einem anderen Widerstandswert bestückt:
 
