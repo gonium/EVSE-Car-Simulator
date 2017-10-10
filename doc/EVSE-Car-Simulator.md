@@ -62,9 +62,10 @@ Ein Typ2-Stecker benutzt folgenden Leitungen:
 	Elektroauto mitgeteilt. Das Elektroauto signalisiert außerdem, ob es
 	für eine Ladung bereit ist.
 
-Die Kommunikation kann mit einfachen analogen Bauteilen ausgewertet
-werden, siehe z.B. [AnalogEVSE](http://analogevse.xyz). Auf der Seite
-des Fahrzeugs sind nur sehr wenige Komponenten erforderlich.
+Die Kommunikation ist sehr simpel --- auf der Seite der Ladestation
+reichen ein paar analoge Bauteile aus, siehe z.B.
+[AnalogEVSE](http://analogevse.xyz). Auf der Seite des Fahrzeugs sind
+ebenfalls nur sehr wenige Komponenten erforderlich.
 
 ## Der Proximity Plug (PP)
 
