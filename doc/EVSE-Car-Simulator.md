@@ -300,6 +300,13 @@ und kostet inklusive Versand in Deutschland 8 Euro. Zum Bestellen einfach eine
 Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
 schreiben.
 
+# Fehler gefunden?
+
+Für Hinweise auf Fehler etc. bin ich dankbar. Am liebsten sind mir
+Fehlerreports [via Github: Hir kann man ein Issue
+aufmachen](https://github.com/gonium/EVSE-Car-Simulator/issues). Eine
+Mail ist aber auch vollkommen OK.
+
 # Versionshistorie
 
 | Wann       | Was                                              |
