@@ -325,7 +325,7 @@ schreiben.
 # Fehler gefunden?
 
 Für Hinweise auf Fehler etc. bin ich dankbar. Am liebsten sind mir
-Fehlerreports [via Github: Hir kann man ein Issue
+Fehlerreports [via Github: Hier kann man ein Issue
 aufmachen](https://github.com/gonium/EVSE-Car-Simulator/issues). Eine
 Mail ist aber auch vollkommen OK.
 
