@@ -281,6 +281,10 @@ eine flinke Schmelzsicherung (10A). Schutz- und Neutralleiter werden
 einfach auf die Schukokupplung aufgelegt, während L1 über die Sicherung
 mit der Kupplung verbunden wird.
 
+## Test einer Wallbox
+
+...TODO...
+
 # Bezugsquelle
 
 Die Designdaten (und diese Anleitung) sind Open Source und unter
