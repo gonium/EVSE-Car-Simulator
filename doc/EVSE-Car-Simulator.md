@@ -299,6 +299,10 @@ eine flinke Schmelzsicherung (10A). Schutz- und Neutralleiter werden
 einfach auf die Schukokupplung aufgelegt, während L1 über die Sicherung
 mit der Kupplung verbunden wird.
 
+## Test einer Wallbox
+
+...TODO...
+
 # Bezugsquelle
 
 Die Designdaten (und diese Anleitung) sind Open Source und unter
@@ -317,6 +321,13 @@ Der Bausatz kann bei Mathias Dalheimer bestellt werden
 und kostet inklusive Versand in Deutschland 8 Euro. Zum Bestellen einfach eine
 Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
 schreiben.
+
+# Fehler gefunden?
+
+Für Hinweise auf Fehler etc. bin ich dankbar. Am liebsten sind mir
+Fehlerreports [via Github: Hier kann man ein Issue
+aufmachen](https://github.com/gonium/EVSE-Car-Simulator/issues). Eine
+Mail ist aber auch vollkommen OK.
 
 # Versionshistorie
 
