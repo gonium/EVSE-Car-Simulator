@@ -318,7 +318,7 @@ unterschiedliche Strombelastbarkeiten kodieren zu können.
 * Die Schutzdiode (1N4007).
 
 Der Bausatz kann bei Mathias Dalheimer bestellt werden
-und kostet inklusive Versand in Deutschland 8 Euro. Zum Bestellen einfach eine
+und kostet inklusive Versand in Deutschland 6 Euro. Zum Bestellen einfach eine
 Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
 schreiben.
 
