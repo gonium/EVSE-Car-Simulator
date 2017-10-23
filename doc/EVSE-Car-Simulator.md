@@ -1,10 +1,10 @@
 ---
-title: 'EVSim Elektroauto-Simulator'
+title: 'EVSim: Tester für Ladestationen'
 author: Mathias Dalheimer, [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Frage)
-tags: [EVSE, Ladesäule, Elektromobilität]
+tags: [EVSE, Ladesäule, Elektromobilität, Tester, Ladestation]
 ...
 
-![](img/pcb-rendering.png)
+![](img/fahrzeugsimulator2.jpg)
 
 Bevor eine Ladesäule den Ladestrom freischaltet, wird zunächst eine
 einfache Kommunikation mit dem Elektroauto aufgebaut. Dabei wird z.B.
@@ -12,7 +12,7 @@ geprüft, ob wirklich ein Elektroauto angeschlossen ist. Außerdem
 wird dem Elektroauto auch der maximal verfügbare Ladestrom von der
 Ladesäule mitgeteilt.
 
-Der Simulator dient dazu, einer Typ 2-Ladesäule ein Elektroauto
+Der Autosimulator dient dazu, einer Typ 2-Ladesäule ein Elektroauto
 vorzugaukeln.  Mit der hier vorgestellten Platine kann man z.B.
 
 * Einen einfachen Funktionstester für Wallboxen bauen,
@@ -43,7 +43,7 @@ Eine Typ 2-Steckdose beinhaltet nicht nur die Stromversorgung, sondern
 auch zwei Kommunikationsleitungen. Über diese werden folgende Funktionen
 koordiniert (vgl. DIN EN 61851-1):
 
-* Überprüfung, dass das Fahrzeug vorschriftsmäßig angeschlossen ist,
+* Überprüfung, ob das Fahrzeug vorschriftsmäßig angeschlossen ist,
 * ständige Überwachung des Schutzleiterdurchgangs,
 * Einschalten des Systems,
 * Ausschalten des Systems,
@@ -51,14 +51,14 @@ koordiniert (vgl. DIN EN 61851-1):
 * Einstellen des Ladestroms,
 * Sperren/Freigeben der Stecker.
 
-Ein Typ2-Stecker benutzt folgenden Leitungen:
+Ein Typ2-Stecker benutzt dafür folgenden Leitungen:
 
 * Einem Drehstromanschluss, also die drei Außenleiter L1, L2 und L3,
 	einem Neutralleiter N sowie einer Schutzerde PE.
 * Einer Signalleitung "Proximity Plug" (PP), über welche
 	die Strombelastbarkeit des Kabels erkannt wird.
 * Einer Signalleitung "Control Pilot" (CP). Auf dieser Leitung werden
-	Sicherheitsprüfungen durchgeführt sowie der zu verwendende Ladestrom dem
+	Sicherheitsprüfungen durchgeführt sowie der maximale Ladestrom dem
 	Elektroauto mitgeteilt. Das Elektroauto signalisiert außerdem, ob es
 	für eine Ladung bereit ist.
 
@@ -82,7 +82,7 @@ einen Widerstand zwischen PP und der Schutzerde PE kodiert. Nach DIN EN
 
 Werte kleiner als 75 Ohm oder größer als 2200 Ohm werden als Fehler
 interpretiert. Dieser Widerstand beschreibt den *maximalen* Ladestrom:
-Würde dieser überschritten, so würde das Kabel beschädigt werden. Der
+Wenn dieser überschritten wird kommt es zu Schäden am Kabel. Der
 reale Ladestrom muss also kleiner bleiben. Der Widerstand muss eine
 Belastbarkeit von mehr als 0,5 Watt haben.
 
@@ -93,7 +93,6 @@ sicherer Aufbau. Die EVSim-Platine bietet aber ebenso einen Platz für
 den Widerstand.
 
 ## Der Control Pilot (CP)
-
 
 Der Control Pilot setzt die restlichen Funktionen um. Dabei
 schaltet das Elektroauto zwei verschiedene Widerstände zwischen CP und
@@ -133,8 +132,8 @@ frei, der Ladevorgang beginnt. Für das Laden von Bleibatterien kann eine
 Lüftungsanforderung gesendet werden (Zustand D). Damit signalisiert ein
 Fahrzeug, das für einen Ladevorgang eine Belüftung notwendig ist --- die
 Wallbox kann diese entweder sicherstellen oder den Ladevorgang
-abbrechen. *Achtung:* Dieser Anwendungsfall ist mittlererweile recht
-selten. Daher ist auf der Platine dieser Widerstand nicht vorgesehen.
+abbrechen. *Achtung: Dieser Anwendungsfall ist mittlererweile recht
+selten. Daher ist dieser Widerstand auf der Platine nicht vorgesehen.*
 
 Die Zustände E und F sind Fehlerzustände, in denen die Stromversorgung
 zum Elektroauto unterbrochen wird. E zeigt einen Kurzschluss zwischen CP
@@ -149,8 +148,8 @@ Ladevorgang digital ausgehandelt werden soll (z.B. bei CCS). Es gilt:
 | Ladestrom | Duty Cycle (+/- 1%) |
 |:----------|:--------------------|
 | Digitales Protokoll | 5% |
-| 6A - 51A  | $$ dc = \frac{Current [A]}{0.6} $$ entspricht 10%--85% |
-| 51A - 80A  | $$dc = \frac{Current [A]}{2.5} + 64$$ entspricht 85%--96%|
+| 6A - 51A  | $$ dc = \frac{Strom [A]}{0.6} $$ entspricht 10%--85% |
+| 51A - 80A  | $$dc = \frac{Strom [A]}{2.5} + 64$$ entspricht 85%--96%|
 
 Ein Duty Cycle kleiner 5% oder größer 96% ist nicht zulässig. Grafisch
 sieht das so aus:
@@ -177,7 +176,10 @@ beobachten zu können. So kann man den Duty Cycle ausrechnen und z.B.
 nachprüfen, ob der Ladestrom von der Ladestation korrekt signalisiert
 wird. Diese Anschlussmöglichkeit kann aber auch ungenutzt bleiben.
 
-Um den Strom des Ladekabels festzulegen wird ein Widerstand zwischen PP und PE benötigt. Dieser wird auf der Platine R3 genannt und wird mit 220 Ohm (min. 0,5 Watt, für 32 A Strombelastbarkeit) bzw. einem anderen Widerstandswert bestückt:
+Um den Strom des Ladekabels festzulegen wird ein Widerstand zwischen PP
+und PE benötigt. Dieser wird auf der Platine R3 genannt und wird mit 220
+Ohm (min. 0,5 Watt, für 32 A Strombelastbarkeit) bzw. einem anderen
+Widerstandswert bestückt:
 
 ![](img/pp-pe-resistor.png)
 
@@ -194,10 +196,11 @@ Widerstände in CP einschalten (N1 ist ein internes Netz):
 R1 (2k7 Ohm, min. 0,5 Watt) signalisiert der Wallbox, das ein
 Elektroauto angeschlossen ist. Der Widerstand R2 (1k2, min. 0,5W)
 zeigt die Ladebereitschaft an. Die beiden Widerstände werden über einen
-separaten Anschluß (J2 und J4) geschleift, damit man über einen
-Kippschalter die Widerstände in CP einschleifen kann. Wer nur Dauerstrom
-entnehmen möchte kann die J2 sowie J4 einfach mit einer Drahtbrücke
-permanent verbinden.
+separaten Anschluß (J2 und J4) geschleift, damit man über je einen
+Kippschalter die Widerstände in CP einschleifen kann. Zusätzlich haben
+die Kippschalter die Funktion, durch Öffnen den Ladevorgang beenden zu
+können - erst dann entriegelt eine Ladestation den Stecker, sodass man
+ihn abziehen kann.
 
 Abschließend fehlt noch die Diode D1 (1N4007). Diese sorgt dafür, das
 der negative Anteil des Pilotsignals weggeschnitten wird. Anhand dieses
@@ -207,9 +210,9 @@ angeschlossen ist --- und der Stecker nicht einfach nur im Regen hängt.
 ![](img/diode-fault.png)
 
 Normalerweise ist J1 geöffnet, d.h. die Wallbox detektiert ein
-Elektroauto. Verbindet man einen Kippschalter mit J1, so kann man einen
-Diodenfehler simulieren und so die Sicherheitsabschaltung der Wallbox
-testen.
+funktionierendes Elektroauto. Verbindet man einen Kippschalter mit J1,
+so kann man einen Diodenfehler simulieren und so die
+Sicherheitsabschaltung der Wallbox testen.
 
 Ebenso kann man an J3 einen Kippschalter anschließen. Wird dieser
 geschlossen, simuliert man einen Kurzschluss von CP --- auch bei diesem
@@ -227,11 +230,10 @@ als Bauanleitung für betriebsfertige Geräte.  Insbesondere hafte ich
 nicht für alle Schäden, die durch den Einsatz dieser Schaltung
 entstehen!*
 
-Die Platine kann einerseits als Fahrzeugsimulator, andererseits auch als
-Ladeadapter für beliebige Eigenentwicklungen eingesetzt werden. Im
-folgenden werden zwei Varianten dargestellt.
-
-Für beide gilt: Die elektrische Sicherheit ist durch die Verwendung
+Die Platine kann für unterschiedliche Anwendungszwecke eingesetzt
+werden. Ich zeige hier den Aufbau eines Funktionstesters für
+Ladestationen, da alle Funktionen der Platine genutzt werden.  Für alle
+Aufbauten gilt: Die elektrische Sicherheit ist durch die Verwendung
 dieser Platine nicht zwangsläufig sichergestellt. Wer nicht über die
 notwendigen elektrotechnischen Kenntnisse verfügt sollte einen
 Elektrofachbetrieb konsultieren! Unter anderem die folgenden Aspekte
@@ -259,17 +261,47 @@ der Platine markiert.
 
 Mit diesem Grundaufbau kann es nun je nach Anwendung weitergehen.
 
-## Aufbau als Fahrzeugsimulator
+## Aufbau als Ladestationstester
 
 ![](img/fahrzeugsimulator.jpg)
 
-Für den oben gezeigten Fahrzeugsimulator sollte man verschiedene
-Kippschalter vorsehen, welche die Widerstände für den Fahrzeugzustand
-gezielt zuschalten. Auch ein kurzgeschlossener CP oder ein Diodenfehler
-können separat simuliert werden. Es werden also insgesamt 4 Kippschalter
-benötigt. Außerdem zeigt eine Glimmlampe an, ob ein Ladestrom anliegt.
-Um die Fehlersuche zu erleichtern kann man auch Messbuchsen für den
-Anschluss eines Multimeters oder Oszilloskops vorsehen.
+Als Gehäuse hat sich das Bopla ET 215 bewährt. Für dieses Gehäuse kann
+man [hier auch eine Bohrschablone herunterladen
+(PDF)](img/Bopla-ET215-DrillTemplate.pdf). Am Besten mit einem kleinen
+Bohrer (3mm) vorbohren und mit einem Stufenbohrer das Loch auf den
+passenden Durchmesser bringen:
+
+![](img/gehaeuse-bohren.jpg)
+
+Die Kabelverschraubungen bilden die Zugentlastung für die Kabel. Im
+Inneren kann man dann z.B. mit Wagoklemmen die einzelnen Leiter
+verbinden:
+
+![](img/gehaeuse-verkabelung.jpg)
+
+An die Anschlüsse CP-D wird eine Messbuchse für CP, an PE-D die Messbuchse
+für PE angeschlossen. Vom Ladekabel werden nun PP, CP und PE an die
+Platine gelötet. Hierfür muss man gegebenenfalls eine dünnere Litze über
+eine Wagoklemme o.ä. mit dem dickerem Schutzleiter verbinden. Die
+Glimmlampe installiert man zwischen den Außenleitern und dem
+Neutralleiter.
+
+Wenn man eine Drehstrom- oder Schukokupplung installiert kann man
+darüber auch einen RCD-Test durchführen und das Drehfeld kontrollieren.
+Außerdem kann man natürlich auch ein Gerät an den Simulator anschließen.
+Da aus einer Typ2-Steckdose mehr Strom entnommen werden kann, als eine
+Schukokupplung maximal zur Verfügung stellen darf, muss in diesem Fall
+unbedingt eine Sicherung vorgesehen werden. Dazu eignet sich z.B. ein
+Leitungsschutzschalter (10A, A-Charakteristik) oder eine flinke
+Schmelzsicherung (10A).
+
+Es fehlen nur noch die Kippschalter --- über diese kann man verschiedene
+Fehler und Fahrzeugzustände simulieren. So kann auch ein
+kurzgeschlossener CP oder ein Diodenfehler simuliert werden.  Außerdem
+zeigt eine oder mehrere Glimmlampe an, ob ein Ladestrom an der
+entsprechenden Phase anliegt.  Um die Fehlersuche zu erleichtern kann
+man auch Messbuchsen für den Anschluss eines Multimeters oder
+Oszilloskops vorsehen.
 
 Für einen sauberen Aufbau empfehle ich die [Kippschalter MS500A (Reichelt-Link)](https://www.reichelt.de/Kippschalter/MS-500A/3/index.html?ACTION=3&GROUPID=7584&ARTICLE=13150&OFFSET=16&) mit [zweipoligen Platinensteckverbindern (Reichelt-Link)](https://www.reichelt.de/Platinen-Steckverbinder/PS-25-2G-WS/3/index.html?ACTION=3&GROUPID=7525&ARTICLE=14825&OFFSET=16&) zu montieren:
 
@@ -284,24 +316,75 @@ Die Kippschalter werden wie folgt verdrahtet:
 | CP short | J3       | Test CP Kurzschluss        | aus       |
 | EV ready | J4       | Fahrzeug ladebereit (R2)   | ein (falls J2 ein) |
 
-An die Anschlüsse CP-D wird eine Messbuchse für CP, an PE-D die Messbuchse
-für PE angeschlossen. Vom Ladekabel werden nun PP, CP und PE an die
-Platine gelötet. Hierfür muss man gegebenenfalls eine dünnere Litze über
-eine Wagoklemme o.ä. mit dem dickerem Schutzleiter verbinden. Die
-Glimmlampe installiert man zwischen L1 und N.
 
-Wenn man eine Schukokupplung installiert, kann man noch ein Gerät an
-den Simulator anschließen. Da aus einer Typ2-Steckdose mehr Strom
-entnommen werden kann, als eine Schukokupplung maximal zur Verfügung
-stellen darf, muss unbedingt eine Sicherung vorgesehen werden. Dazu
-eignet sich z.B. ein Leitungsschutzschalter (10A, A-Charakteristik) oder
-eine flinke Schmelzsicherung (10A). Schutz- und Neutralleiter werden
-einfach auf die Schukokupplung aufgelegt, während L1 über die Sicherung
-mit der Kupplung verbunden wird.
+## Prüfung einer Ladestation
 
-## Test einer Wallbox
+Jede Prüfung sollte zunächst mit einer Sichtprüfung beginnen: Ist das
+Gehäuse beschädigt? Könnte Wasser in die Ladestation gelangt sein? Ist
+die Isolierung der Kabel brüchig/beschädigt? Danach kann ein normaler
+Ladeablauf simuliert werden (vgl. Abschnitt ["Der Control Pilot (CP)"](#der-control-pilot-cp) bezüglich der Zustände):
 
-...TODO...
+1. Den Tester mit der Ladestation verbinden. Alle Schalter sollten auf
+	 der "Aus"-Position sein. Der Zustand A ist erreicht.
+2. Den Schalter "EV detect" einschalten. Daraufhin sollte die
+	 Ladestation den Stecker verriegeln. Dies entspricht Zustand B.
+3. Den Schalter "EV ready" umlegen. Die Ladestation sollte nun den
+	 Ladeschütz freigeben und die Glimmlampen sollten einen anliegenden
+	 Ladestrom signalisieren --- der Zustand C ist erreicht.
+4. Der Ladevorgang kann jederzeit unterbrochen werden, indem man "EV
+	 ready" ausschaltet. Durch erneutes Einschalten sollte der Ladestrom
+	 wieder angeschaltet werden.
+5. Um den Stecker wieder entfernen zu können schaltet man "EV ready" und
+	 "EV detect" aus. Der Stecker sollte entriegelt werden.
+
+Dieser grundlegende Ablauf sollte bei jeder Ladestation problemlos
+funktionieren. Zusätzlich sollte man aber auch die folgenden Funktionen
+prüfen:
+
+1. Im Zustand C: Der FI kann durch ein RCD-Testgerät (Duspol etc.)
+	 ausgelöst werden.
+2. Im Zustand C: Das Drehfeld der Außenleiter ist korrekt.
+3. In den Zuständen A, B, C und D: Wenn man "CP short" einschaltet muss die
+	 Ladestation einen Fehler anzeigen und in den Zustand E wechseln. Es
+	 darf kein Ladestrom anliegen!
+4. In den Zuständen A, B, C und D: Sobald "Diode fault" eingeschaltet
+	 wird muss die Ladestation einen Fehler anzeigen und in den Zustand E
+	 wechseln. Es darf kein Ladestrom anliegen!
+
+Für Z.E. Ready-Ladestationen gelten zusätzlich noch die Bestimmungen von
+Renault. Einerseits muss die Ladestation konstruktiv diese Vorgaben
+erfüllen (z.B. DC-Fehlerstromerkennung und die Dimensionierung der
+Leitungsschutzschalter), andererseits muss auch die Installation
+gewisse Anforderungen erfüllen. Dazu gehören:
+
+1. TT/TN-Netze: Erdungswiderstand kleiner 100 Ohm
+2. TT/TN-Netze: Spannung N-PE nicht größer 10V
+3. Oberwellen können den Ladevorgang beenden. Die Netzversorgung muss IEC 61000-2-1, IEC 61000-2-2 sowie EN 50160 erfüllen.
+
+Diese Parameter können direkt an der Schukokupplung/Drehstromkupplung
+getestet werden.  Die Relevanz dieser Kriterien ist allerdings
+umstritten, siehe [diesen Thread im
+Goingelectric-Forum.](https://www.goingelectric.de/forum/ladeequipment/z-e-ready-was-bedeutet-das-genau-t27327.html).
+
+Wenn man ein Oszilloskop (oder ein Multimeter mit Frequenz- und
+Dutycycle-Anzeige) zwischen CP und PE anschließt kann man auch
+untersuchen, welchen Ladestrom die Ladesäule gerade freigibt. Das
+folgende Bild zeigt eine Ladestation von Hager im Zustand C:
+
+![](img/CP-Ladevorgang.png)
+
+Man kann ein Rechtecksignal mit einer Grundfrequenz von 1kHz erkennen.
+Das positive Spannungsniveau liegt bei 6V, das negative bei -12V. Da wir
+das Signal direkt hinter dem Stecker noch vor der Diode abgreifen ist
+das ok so. Der Duty Cycle liegt bei 16.4%. Es gilt:
+
+$$ Strom [A] = 0.6\cdot dc = 0.6 \cdot 16.4 = 9.83 $$
+
+Das entspricht in etwa der eingestellten Ladestrombegrenzung von
+10A, d.h. die Ladestation arbeitet korrekt. Im Feldeinsatz empfiehlt
+sich allerdings ein Multimeter mit Duty Cycle-Anzeige --- das Fluke 17b
+kann ich dafür empfehlen. Damit kann man auch (fast) alle anderen
+Funktionen überprüfen.
 
 # Bezugsquelle
 
