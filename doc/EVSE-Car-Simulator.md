@@ -4,6 +4,8 @@ author: Mathias Dalheimer, [evse@gonium.net](mailto:evse@gonium.net?subject=EVSi
 tags: [EVSE, Ladesäule, Elektromobilität, Tester, Ladestation]
 ...
 
+---
+
 ![](img/fahrzeugsimulator2.jpg)
 
 Bevor eine Ladesäule den Ladestrom freischaltet, wird zunächst eine
@@ -398,8 +400,9 @@ verfügbar. Die Schaltung kann man natürlich recht schnell auf einer
 Lochrasterplatine aufbauen. Wer lieber einen kleinen Bausatz haben
 möchte, kann diesen bestellen. Der Bausatz enthält:
 
-* Eine Platine (37x18mm) wie oben beschrieben:
 ![](img/platine-leer.jpg)
+
+* Eine Platine (37x18mm) wie oben beschrieben.
 * Ein Set Widerstände R1-R3 mit verschiedenen Werten für R3, um
 unterschiedliche Strombelastbarkeiten kodieren zu können.
 * Die Schutzdiode (1N4007).

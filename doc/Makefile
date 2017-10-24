@@ -29,9 +29,10 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 
 %.html: %.md
 	@pandoc $< -o $@ \
-	  -s --smart --number-section --toc -H pandoc.css \
+	  -s --smart --number-section --toc --mathjax \
 	  --email-obfuscation=javascript --to html5 \
-	  -H googleanalytics.js --mathjax
+	  -H headermeta.html -H pandoc.css \
+	  -H googleanalytics.js
 
 deploy: all
 	rsync -rzh *.html img md@evsim.gonium.net:/var/www/evsim.gonium.net
