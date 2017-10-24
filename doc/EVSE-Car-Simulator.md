@@ -10,10 +10,9 @@ Bevor eine Ladesäule den Ladestrom freischaltet, wird zunächst eine
 einfache Kommunikation mit dem Elektroauto aufgebaut. Dabei wird z.B.
 geprüft, ob wirklich ein Elektroauto angeschlossen ist. Außerdem
 wird dem Elektroauto auch der maximal verfügbare Ladestrom von der
-Ladesäule mitgeteilt.
-
-Der Autosimulator dient dazu, einer Typ 2-Ladesäule ein Elektroauto
-vorzugaukeln.  Mit der hier vorgestellten Platine kann man z.B.
+Ladesäule mitgeteilt. Der Autosimulator dient dazu, einer Typ
+2-Ladesäule ein Elektroauto vorzugaukeln.  Mit der hier vorgestellten
+Platine kann man z.B.
 
 * Einen einfachen Funktionstester für Wallboxen bauen,
 * einen Ladesäule-nach-Schuko-Adapter bauen oder
@@ -318,6 +317,12 @@ Die Kippschalter werden wie folgt verdrahtet:
 
 
 ## Prüfung einer Ladestation
+
+Die DIN EN 61851-22 (auch bekannt als VDE 0122, Teil 2-2) stellt den notwendigen
+Funktionsumfang für Ladestationen dar. Sie bezieht sich in vielen Teilen
+auf die DIN EN 61851-1. Beide Normen sind maßgeblich. Im Folgenden setze
+ich voraus, das die Ladestation die o.a. Normen erfüllt und eine
+Typprüfung vorliegt.
 
 Jede Prüfung sollte zunächst mit einer Sichtprüfung beginnen: Ist das
 Gehäuse beschädigt? Könnte Wasser in die Ladestation gelangt sein? Ist
