@@ -379,13 +379,12 @@ folgende Bild zeigt eine Ladestation von Hager im Zustand C:
 ![](img/CP-Ladevorgang.png)
 
 Man kann ein Rechtecksignal mit einer Grundfrequenz von 1kHz erkennen.
-Das positive Spannungsniveau liegt bei 6V, das negative bei -12V. Da wir
-das Signal direkt hinter dem Stecker noch vor der Diode abgreifen ist
-das ok so. Der Duty Cycle liegt bei 16.4%. Es gilt:
+Das positive Spannungsniveau liegt bei 6V, das negative bei -12V. Der
+Duty Cycle liegt bei 16.4%. Es gilt:
 
 $$ Strom [A] = 0.6\cdot dc = 0.6 \cdot 16.4 = 9.83 $$
 
-Das entspricht in etwa der eingestellten Ladestrombegrenzung von
+Das entspricht in etwa der hier eingestellten Ladestrombegrenzung von
 10A, d.h. die Ladestation arbeitet korrekt. Im Feldeinsatz empfiehlt
 sich allerdings ein Multimeter mit Duty Cycle-Anzeige --- das Fluke 17b
 kann ich dafür empfehlen. Damit kann man auch (fast) alle anderen
