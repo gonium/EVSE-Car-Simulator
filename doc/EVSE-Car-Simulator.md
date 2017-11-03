@@ -120,12 +120,12 @@ Gleichspannung wird durch ein PWM-Signal mit 1kHz ersetzt, zwischen -12V
 und 12V. Die Diode im Fahrzeug bewirkt, das der negative Anteil
 verworfen wird. Auf diese Weise kann die Wallbox ein Fahrzeug von einem
 zufälligen Kurzschluss (z.B. Kabel liegt im Regen) unterscheiden. Im
-Fahrzeug wird außerdem ein Widerstand von 1k2 Ohm zwischen CP und PE
+Fahrzeug wird außerdem ein Widerstand von 2k7 Ohm zwischen CP und PE
 geschaltet. Damit sinkt die positive Spannung auf 9V ab. Das Fahrzeug
 ist nun korrekt angeschlossen und der Zustand B erreicht.
 
 Sobald das Fahrzeug zum Laden bereit ist wird ein weiterer Widerstand
-(2k7 Ohm) zwischen CP und PE geschaltet. Damit sinkt die CP-PE-Spannung
+(1k2 Ohm) zwischen CP und PE geschaltet. Damit sinkt die CP-PE-Spannung
 auf 6V, der Zustand C ist erreicht. Die Wallbox schaltet den Ladestrom
 frei, der Ladevorgang beginnt. Für das Laden von Bleibatterien kann eine
 Lüftungsanforderung gesendet werden (Zustand D). Damit signalisiert ein
