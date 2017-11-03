@@ -266,8 +266,8 @@ table td {
   }
 
   body {
-    font-size: 12pt;
-    max-width: 100%;
+    font-size: 10pt;
+    max-width: 80%;
   }
 
   a, a:visited {
@@ -303,7 +303,7 @@ table td {
   }
 
   img {
-    max-width: 100% !important;
+    max-width: 80% !important;
   }
 
   @page :left {
