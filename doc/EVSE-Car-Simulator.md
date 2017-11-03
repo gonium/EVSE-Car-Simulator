@@ -113,7 +113,7 @@ Die folgenden sechs Zustände sind möglich:
 | C      | Ja                 | Ja            | 6V/-12V         |1 kHz     |
 | D      | Ja                 | Ja            | 3V/-12V         |1 kHz     |
 | E      | Ja                 | Nein          | 0V              | -        |
-| F      | Ja                 | Nein          | -/-12V          | -        |
+| F      | Ja                 | Nein          | -               | -        |
 
 Im Zustand A ist kein Fahrzeug angeschlossen. Die Wallbox legt eine
 Gleichspannung von 12V zwischen CP und PE an. Sobald ein Kabel
@@ -392,7 +392,7 @@ sich allerdings ein Multimeter mit Duty Cycle-Anzeige --- das Fluke 17b
 kann ich dafür empfehlen. Damit kann man auch (fast) alle anderen
 Funktionen überprüfen.
 
-# Bezugsquelle
+# EVSim kaufen
 
 Die Designdaten (und diese Anleitung) sind Open Source und unter
 [https://github.com/gonium/EVSE-Car-Simulator](https://github.com/gonium/EVSE-Car-Simulator)
