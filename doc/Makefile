@@ -4,8 +4,6 @@
 # List files to be made by finding all *.md files and appending .pdf
 PDFS := $(patsubst %.md,%.pdf,$(wildcard *.md))
 HTMLS := $(patsubst %.md,%.html,$(wildcard *.md))
-#DOCX := $(patsubst %.md,%.docx,$(wildcard *.md))
-#TXTS := $(patsubst %.md,%.txt,$(wildcard *.md))
 
 # The all rule makes all the PDF files listed
 all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
@@ -19,14 +17,6 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 	  -V papersize:A4 -V lang:de -V toc \
 	  -fmarkdown-implicit_figures 
 
-%.docx: %.md
-	@pandoc $< -o $@ --smart
-
-
-%.txt: %.md
-	@pandoc --columns=70 --no-highlight -s $< -o $@
-
-
 %.html: %.md
 	@pandoc $< -o $@ \
 	  -s --smart --number-section --toc --mathjax \
@@ -36,6 +26,9 @@ all : $(PDFS) $(HTMLS) #$(DOCX) $(TXTS)
 
 deploy: all
 	rsync -rzh *.html img md@evsim.gonium.net:/var/www/evsim.gonium.net
+
+develop: $(HTMLS)
+	python -m http.server 4000
 
 # Remove all PDF outputs
 clean:
