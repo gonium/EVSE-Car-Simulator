@@ -30,11 +30,12 @@ siehe [Bezugsquelle](#bezugsquelle).  Die Platine entstand, weil ich
 eine Softwareschnittstelle zu einer Wallbox entwickeln wollte. Da der
 Ladevorgang das mindestens das Durchlaufen der Zustände A-C vorsieht hab
 ich einen kleinen Simulator gebraucht, der auf dem Schreibtisch liegen
-kann und ein Auto simuliert. Mit diesem Simulator kann man (fast) alle
+kann und ein Auto simuliert. Mit diesem Simulator kann man alle
 Ladezustände eines Elektroautos simulieren und die Reaktion der Wallbox
-messen. Über die Schalter lassen sich verschiedene Widerstände
-einstellen sowie Fehler wie eine defekte Diode und einen Kurzschluss
-zwischen CP und PE simulieren.
+prüfen. Über Schalter lassen sich verschiedene Zustände einstellen sowie
+Fehler wie eine defekte Diode und einen Kurzschluss zwischen CP und PE
+simulieren. Ebenso kann man einen Ladevorgang simulieren und dann die
+notwenigen Sicherheitsprüfungen an der Wallbox durchführen.
 
 ---
 
@@ -224,12 +225,12 @@ Fehler muss die Wallbox den Strom abschalten.
 
 # Aufbauanleitung
 
-*ACHTUNG: Netzspannung kann tödlich sein. Jeder ist für seine Aufbauten
-selbst verantwortlich. Die im nachfolgenden dargestellten
-Aufbauvarianten sind nur als Denkanstoß zu verstehen und dienen nicht
-als Bauanleitung für betriebsfertige Geräte.  Insbesondere hafte ich
-nicht für alle Schäden, die durch den Einsatz dieser Schaltung
-entstehen!*
+**ACHTUNG: Netzspannung kann tödlich sein. Der Fahrzeugsimulator darf
+nur von Elektrofachkräften aufgebaut werden. Die im nachfolgenden
+dargestellten Aufbauvarianten sind nur als Denkanstoß zu verstehen und
+dienen nicht als Bauanleitung für betriebsfertige Geräte.  Insbesondere
+hafte ich nicht für alle Schäden, die durch den Einsatz dieser Schaltung
+entstehen!**
 
 Die Platine kann für unterschiedliche Anwendungszwecke eingesetzt
 werden. Ich zeige hier den Aufbau eines Funktionstesters für
@@ -320,11 +321,10 @@ Die Kippschalter werden wie folgt verdrahtet:
 
 ## Prüfung einer Ladestation
 
-Die DIN EN 61851-22 (auch bekannt als VDE 0122, Teil 2-2) stellt den notwendigen
-Funktionsumfang für Ladestationen dar. Sie bezieht sich in vielen Teilen
-auf die DIN EN 61851-1. Beide Normen sind maßgeblich. Im Folgenden setze
-ich voraus, das die Ladestation die o.a. Normen erfüllt und eine
-Typprüfung vorliegt.
+Ladestationen sind Bestandteil der Niederspannungsanlage und müssen
+gemäß der VDE 0100-600 geprüft werden. Allerdings sind innerhalb eine
+Ladestation auch Sicherheitsfunktionen implementiert. Um das
+Komplettsystem zu prüfen wird ein Fahrzeugsimulator benötigt.
 
 Jede Prüfung sollte zunächst mit einer Sichtprüfung beginnen: Ist das
 Gehäuse beschädigt? Könnte Wasser in die Ladestation gelangt sein? Ist
@@ -358,20 +358,6 @@ prüfen:
 	 wird muss die Ladestation einen Fehler anzeigen und in den Zustand E
 	 wechseln. Es darf kein Ladestrom anliegen!
 
-Für Z.E. Ready-Ladestationen gelten zusätzlich noch die Bestimmungen von
-Renault. Einerseits muss die Ladestation konstruktiv diese Vorgaben
-erfüllen (z.B. DC-Fehlerstromerkennung und die Dimensionierung der
-Leitungsschutzschalter), andererseits muss auch die Installation
-gewisse Anforderungen erfüllen. Dazu gehören:
-
-1. TT/TN-Netze: Erdungswiderstand kleiner 100 Ohm
-2. TT/TN-Netze: Spannung N-PE nicht größer 10V
-3. Oberwellen können den Ladevorgang beenden. Die Netzversorgung muss IEC 61000-2-1, IEC 61000-2-2 sowie EN 50160 erfüllen.
-
-Diese Parameter können direkt an der Schukokupplung/Drehstromkupplung
-getestet werden.  Die Relevanz dieser Kriterien ist allerdings
-umstritten, siehe [diesen Thread im
-Goingelectric-Forum.](https://www.goingelectric.de/forum/ladeequipment/z-e-ready-was-bedeutet-das-genau-t27327.html).
 
 Wenn man ein Oszilloskop (oder ein Multimeter mit Frequenz- und
 Dutycycle-Anzeige) zwischen CP und PE anschließt kann man auch
@@ -392,13 +378,31 @@ sich allerdings ein Multimeter mit Duty Cycle-Anzeige --- das Fluke 17b
 kann ich dafür empfehlen. Damit kann man auch (fast) alle anderen
 Funktionen überprüfen.
 
+### Z.E. Ready
+
+Für Z.E. Ready-Ladestationen gelten zusätzlich noch die Bestimmungen von
+Renault. Einerseits muss die Ladestation konstruktiv diese Vorgaben
+erfüllen (z.B. DC-Fehlerstromerkennung und die Dimensionierung der
+Leitungsschutzschalter), andererseits muss auch die Installation
+gewisse Anforderungen erfüllen. Dazu gehören:
+
+1. TT/TN-Netze: Erdungswiderstand kleiner 100 Ohm
+2. TT/TN-Netze: Spannung N-PE nicht größer 10V
+3. Oberwellen können den Ladevorgang beenden. Die Netzversorgung muss IEC 61000-2-1, IEC 61000-2-2 sowie EN 50160 erfüllen.
+
+Diese Parameter können direkt an der Schukokupplung/Drehstromkupplung
+getestet werden.  Die Relevanz dieser Kriterien ist allerdings
+umstritten, siehe [diesen Thread im
+Goingelectric-Forum.](https://www.goingelectric.de/forum/ladeequipment/z-e-ready-was-bedeutet-das-genau-t27327.html).
+
+
 # EVSim kaufen
 
 Die Designdaten (und diese Anleitung) sind Open Source und unter
 [https://github.com/gonium/EVSE-Car-Simulator](https://github.com/gonium/EVSE-Car-Simulator)
 verfügbar. Die Schaltung kann man natürlich recht schnell auf einer
 Lochrasterplatine aufbauen. Wer lieber einen kleinen Bausatz haben
-möchte, kann diesen bestellen. Der Bausatz enthält:
+möchte, kann diesen bei mir bestellen. Der Bausatz enthält:
 
 ![](img/platine-leer.jpg)
 
@@ -407,10 +411,18 @@ möchte, kann diesen bestellen. Der Bausatz enthält:
 unterschiedliche Strombelastbarkeiten kodieren zu können.
 * Die Schutzdiode (1N4007).
 
-Der Bausatz kann bei Mathias Dalheimer bestellt werden
-und kostet inklusive Versand in Deutschland 6 Euro. Zum Bestellen einfach eine
+Das Ganze kommt --- zusammen mit einer Rechnung --- so bei Euch an:
+
+![](img/bausatz.jpg)
+
+
+Der Bausatz kostet 8 Euro. In Deutschland kostet der Versand bei kleinen Mengen
+2 Euro --- bei größeren Mengen entsprechend mehr. Zum Bestellen einfach eine
 Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
-schreiben.
+schreiben. In der Mail einfach die gewünschte Anzahl sowie die
+Rechnungsadresse angeben. Ich schicke direkt eine Rechnung mit den
+Zahlungsinformationen. Sobald das Geld bei mir eingegangen ist verschicke
+ich zeitnah.
 
 # Fehler gefunden?
 
