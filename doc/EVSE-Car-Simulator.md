@@ -2,9 +2,9 @@
 title: 'EVSim: Tester für Ladestationen'
 author: Mathias Dalheimer, [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Frage)
 tags: [EVSE, Ladesäule, Elektromobilität, Tester, Ladestation]
-...
 
 ---
+
 
 ![](img/fahrzeugsimulator2.jpg)
 
@@ -463,12 +463,44 @@ Rechnungsadresse angeben. Ich schicke direkt eine Rechnung mit den
 Zahlungsinformationen. Sobald das Geld bei mir eingegangen ist verschicke
 ich zeitnah.
 
-# Fehler gefunden?
+# Häufige Fragen (FAQ)
+
+**Ich habe einen Fehler gefunden.**
 
 Für Hinweise auf Fehler etc. bin ich dankbar. Am liebsten sind mir
 Fehlerreports [via Github: Hier kann man ein Issue
 aufmachen](https://github.com/gonium/EVSE-Car-Simulator/issues). Eine
 Mail ist aber auch vollkommen OK.
+
+**Kannst Du mir nicht ein fertiges Gerät verkaufen?**
+
+Momentan gilt: Leider nein, aus Haftungsgründen. Jeder ist für seine
+Aufbauten selbst verantwortlich.
+
+**Kannst Du mir nicht Schalter, Buchsen usw. verkaufen?**
+
+Könnte sein, kommt auf meine Lagerbestände an. Einfach fragen! Wenn die
+Nachfrage groß genug ist werde ich das permanent anbieten.
+
+**Warum ist der Bausatz so teuer?**
+
+Wenn Du lediglich den Materialwert zugrunde legst kann ich die Frage gut
+nachvollziehen. Nimm einfach das passende Zeug aus Deiner Bastelkiste
+und bau die Schaltung nach. Andererseits habe ich recht viel Zeit in die
+Dokumentation und die Entwicklung einer einfachen, gut lötbaren Platine
+gesteckt. Die Platine muss gefertigt werden, die Bauteile müssen
+bestellt und zusammen mit der Platine verpackt werden. Auch Rechnung
+schreiben und die ganze Verwaltung machen erstaunlich viel Arbeit. 
+
+Mit anderen Worten: Ob es Dir das Geld wert ist musst Du selbst entscheiden!
+
+**Warum nur Vorkasse? Kann ich nicht via Paypal etc. bezahlen?**
+
+Im Moment nehme ich nur Zahlungen via SEPA-Überweisung im Voraus an. Das
+hat hauptsächlich den Grund, das so meine Arbeit überschaubar bleibt und
+keine Transaktionsgebühren anfallen. Leider musste ich schon meinem Geld
+hinterherrennen &mdash; und dazu hab ich schlichtweg keine Lust.
+
 
 # Versionshistorie
 

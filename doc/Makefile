@@ -28,7 +28,7 @@ deploy: all
 	rsync -rzh *.html img md@evsim.gonium.net:/var/www/evsim.gonium.net
 
 develop: $(HTMLS)
-	python -m http.server 4000
+	python devmode.py
 
 # Remove all PDF outputs
 clean:
