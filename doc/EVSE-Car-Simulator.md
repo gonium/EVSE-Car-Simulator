@@ -321,15 +321,38 @@ Die Kippschalter werden wie folgt verdrahtet:
 
 ## Prüfung einer Ladestation
 
-Ladestationen sind Bestandteil der Niederspannungsanlage und müssen
-gemäß der VDE 0100-600 geprüft werden. Allerdings sind innerhalb eine
-Ladestation auch Sicherheitsfunktionen implementiert. Um das
-Komplettsystem zu prüfen wird ein Fahrzeugsimulator benötigt.
+Ladestationen sind Bestandteil der Niederspannungsinstallation und müssen
+gemäß der VDE 0100-600 geprüft werden. Die Prüfung kann in drei Bereiche
+unterteilt werden: Sichtprüfung, Messung und Funktionsprüfung.
+Innerhalb einer Ladestation sind auch Sicherheitsfunktionen
+umgesetzt: Ein Teil der Messungen kann also nur während eines
+Ladevorgangs durchgeführt werden. Daher benötigt man zur Prüfung einen
+Fahrzeugsimulator.
 
-Jede Prüfung sollte zunächst mit einer Sichtprüfung beginnen: Ist das
-Gehäuse beschädigt? Könnte Wasser in die Ladestation gelangt sein? Ist
-die Isolierung der Kabel brüchig/beschädigt? Danach kann ein normaler
-Ladeablauf simuliert werden (vgl. Abschnitt ["Der Control Pilot (CP)"](#der-control-pilot-cp) bezüglich der Zustände):
+Jede Prüfung beginnt mit einer Sichtprüfung: Ist das Gehäuse beschädigt?
+Könnte Wasser in die Ladestation gelangt sein? Ist die Isolierung der
+Kabel brüchig/beschädigt? Sind andere Gefahren erkennbar? Im Anschluss
+kann mit den Messungen begonnen werden:
+
+* Durchgängigkeit des Schutzleites $R_{lo}$
+* Isolationswiderstand $R_{iso}$
+* Netzimpedanz $Z_i$
+* Schleifenimpendanz $Z_s$
+* Erdwiderstand
+* Spannung (L-N, L-PE)
+* Ausschaltzeit des FI $t_a$
+* Auslösestromart des FI (Wechsel,- Puls-, Gleichfehlerstorm)
+* Auslösestrom des FI (Flankenanstieg)
+* Drehfeldprüfung (Richtung des Drehfelds egal)
+* Duty Cycle (Tastverhältnis) des Control Pilot
+
+Einige dieser Messungen müssen am Fahrzeugstecker unter Spannung
+durchgeführt werden. Indem man den Fahrzeugsimulator in den Zustand C
+bringt kann man diese mit dem normalen Installationstester durchführen.
+Man misst also während des Funktionstests. Der Funktionstest selbst
+beginnt mit dem Simulieren eines normalen Ladeablaufs (vgl. Abschnitt
+["Der Control Pilot (CP)"](#der-control-pilot-cp) bezüglich der
+			Zustände):
 
 1. Den Tester mit der Ladestation verbinden. Alle Schalter sollten auf
 	 der "Aus"-Position sein. Der Zustand A ist erreicht.
@@ -345,12 +368,12 @@ Ladeablauf simuliert werden (vgl. Abschnitt ["Der Control Pilot (CP)"](#der-cont
 	 "EV detect" aus. Der Stecker sollte entriegelt werden.
 
 Dieser grundlegende Ablauf sollte bei jeder Ladestation problemlos
-funktionieren. Zusätzlich sollte man aber auch die folgenden Funktionen
-prüfen:
+funktionieren. Zusätzlich sollte man die folgenden Messungen
+durchführen:
 
-1. Im Zustand C: Der FI kann durch ein RCD-Testgerät (Duspol etc.)
-	 ausgelöst werden.
-2. Im Zustand C: Das Drehfeld der Außenleiter ist korrekt.
+1. Im Zustand C: Der FI wird wie oben dargestellt geprüft.
+2. Im Zustand C: Das Drehfeld der Außenleiter ist korrekt, wobei die
+	 Drehfeldrichtung keine Rolle spielt.
 3. In den Zuständen A, B, C und D: Wenn man "CP short" einschaltet muss die
 	 Ladestation einen Fehler anzeigen und in den Zustand E wechseln. Es
 	 darf kein Ladestrom anliegen!
@@ -358,10 +381,30 @@ prüfen:
 	 wird muss die Ladestation einen Fehler anzeigen und in den Zustand E
 	 wechseln. Es darf kein Ladestrom anliegen!
 
+Der letzte Test ist umstritten: Die DIN 61851-1 bietet hier einen
+gewissen Interpretationsspielraum, ob der Diodenfehler nur zu Beginn des
+Ladevorgangs (Zustand A) oder auch in den anderen Zuständen permanent
+detektiert werden muss. Die Hager-Ladestationen überwachen permanent.
+Die Ladecontroller von Phoenix Contact und die
+Keba-Ladestationen führen den Test lediglich im Zustand A, also zu
+Beginn des Ladevorgangs, durch. [Im
+goingelectric-Forum gibt es dazu mehr
+Informationen](https://www.goingelectric.de/forum/ladeequipment/diodentest-machen-wallboxen-das-korrekt-t27212.html).
 
-Wenn man ein Oszilloskop (oder ein Multimeter mit Frequenz- und
-Dutycycle-Anzeige) zwischen CP und PE anschließt kann man auch
-untersuchen, welchen Ladestrom die Ladesäule gerade freigibt. Das
+**Achtung:** Ich habe bereits TÜV-geprüfte Wallboxen eines chinesischen
+Herstellers untersucht, die weder auf "CP short" noch "Diode fault"
+prüfen. Sobald ein passender Widerstand zwischen CP und PE liegt wird
+der Drehstrom angeschaltet. In meinen Augen ist das hochgefährlich. Man
+sollte also die korrekte Funktion unbedingt prüfen und sich nicht auf
+ein TÜV-Siegel verlassen!
+
+Als letztes muss auch der Dutycycle des Control Pilots überprüft werden,
+da dieser den maximalen Ladestrom der Ladesäule dem Auto mitteilt. Hier
+sollte man prüfen, ob z.B. ein Ladekabel mit 13A maximaler Belastbarkeit
+korrekt von einer mit 20A abgesicherten Ladestation abgelehnt wird.
+
+Mit einem Oszilloskop oder Multimeter zwischen CP und PE misst man dafür
+den Duty Cycle und kann diesen dann in den Ladestrom umrechnen. Das
 folgende Bild zeigt eine Ladestation von Hager im Zustand C:
 
 ![](img/CP-Ladevorgang.png)
@@ -373,10 +416,7 @@ Duty Cycle liegt bei 16.4%. Es gilt:
 $$ Strom [A] = 0.6\cdot dc = 0.6 \cdot 16.4 = 9.83 $$
 
 Das entspricht in etwa der hier eingestellten Ladestrombegrenzung von
-10A, d.h. die Ladestation arbeitet korrekt. Im Feldeinsatz empfiehlt
-sich allerdings ein Multimeter mit Duty Cycle-Anzeige --- das Fluke 17b
-kann ich dafür empfehlen. Damit kann man auch (fast) alle anderen
-Funktionen überprüfen.
+10A, d.h. die Ladestation arbeitet korrekt.
 
 ### Z.E. Ready
 
@@ -390,9 +430,8 @@ gewisse Anforderungen erfüllen. Dazu gehören:
 2. TT/TN-Netze: Spannung N-PE nicht größer 10V
 3. Oberwellen können den Ladevorgang beenden. Die Netzversorgung muss IEC 61000-2-1, IEC 61000-2-2 sowie EN 50160 erfüllen.
 
-Diese Parameter können direkt an der Schukokupplung/Drehstromkupplung
-getestet werden.  Die Relevanz dieser Kriterien ist allerdings
-umstritten, siehe [diesen Thread im
+Die Relevanz dieser Kriterien ist allerdings umstritten, siehe [diesen
+Thread im
 Goingelectric-Forum.](https://www.goingelectric.de/forum/ladeequipment/z-e-ready-was-bedeutet-das-genau-t27327.html).
 
 
@@ -416,10 +455,10 @@ Das Ganze kommt --- zusammen mit einer Rechnung --- so bei Euch an:
 ![](img/bausatz.jpg)
 
 
-Der Bausatz kostet 8 Euro. In Deutschland kostet der Versand bei kleinen Mengen
+Der Bausatz kostet 8 Euro, der Versand innerhalb Deutschlands bei kleinen Mengen
 2 Euro --- bei größeren Mengen entsprechend mehr. Zum Bestellen einfach eine
 Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
-schreiben. In der Mail einfach die gewünschte Anzahl sowie die
+schreiben. In der Mail bitte die gewünschte Anzahl sowie die
 Rechnungsadresse angeben. Ich schicke direkt eine Rechnung mit den
 Zahlungsinformationen. Sobald das Geld bei mir eingegangen ist verschicke
 ich zeitnah.
