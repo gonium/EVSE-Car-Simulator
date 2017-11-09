@@ -341,7 +341,7 @@ kann mit den Messungen begonnen werden:
 * Erdwiderstand
 * Spannung (L-N, L-PE)
 * Ausschaltzeit des FI $t_a$
-* Auslösestromart des FI (Wechsel,- Puls-, Gleichfehlerstorm)
+* Auslösestromart des FI (Wechsel,- Puls-, Gleichfehlerstrom)
 * Auslösestrom des FI (Flankenanstieg)
 * Drehfeldprüfung (Richtung des Drehfelds egal)
 * Duty Cycle (Tastverhältnis) des Control Pilot
