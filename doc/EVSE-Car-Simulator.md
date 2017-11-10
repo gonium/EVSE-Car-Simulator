@@ -2,30 +2,37 @@
 title: 'EVSim: Tester für Ladestationen'
 author: Mathias Dalheimer, [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Frage)
 tags: [EVSE, Ladesäule, Elektromobilität, Tester, Ladestation]
+keywords: [EVSE, Ladesäule, Elektromobilität, Ladesẗation, Tester,
+	Ladestationtester]
 
 ---
 
 
-![](img/fahrzeugsimulator2.jpg)
+# Worum geht es hier?
 
-Bevor eine Ladesäule den Ladestrom freischaltet, wird zunächst eine
-einfache Kommunikation mit dem Elektroauto aufgebaut. Dabei wird z.B.
-geprüft, ob wirklich ein Elektroauto angeschlossen ist. Außerdem
-wird dem Elektroauto auch der maximal verfügbare Ladestrom von der
-Ladesäule mitgeteilt. Der Autosimulator dient dazu, einer Typ
-2-Ladesäule ein Elektroauto vorzugaukeln.  Mit der hier vorgestellten
-Platine kann man z.B.
+Eine Ladestation für Elektroautos ist eine glorifizierte
+Drehstromsteckdose. Zum Testen oder Strom nutzen muss man der
+Ladestation ein Auto vorgaukeln --- dazu nutzt man einen Autosimulator.
+Mit der hier vorgestellten Platine kann man z.B.
 
-* Einen einfachen Funktionstester für Wallboxen bauen,
-* einen Ladesäule-nach-Schuko-Adapter bauen oder
+* Einen Funktionstester für Wallboxen bauen,
+* einen Ladesäule-nach-Wohnwagen-Adapter bauen oder
 * einen eigenen Laderegler an Typ2-Ladesäulen anschließen.
 
 Natürlich kann man aber auch ein Waffeleisen damit betreiben:
 
 <iframe width="640" height="360" src="https://www.youtube.com/embed/pUEp3uWAWqY?rel=0" frameborder="0" allowfullscreen></iframe>
 
-Der Simulator implementiert das Ladeprotokoll nach DIN EN 61851 bzw.
-J1772. Die passende Platine kann für eigene Experimente gekauft werden,
+Bevor eine Ladesäule den Ladestrom freischaltet, wird zunächst eine
+einfache Kommunikation mit dem Elektroauto aufgebaut. Dabei wird z.B.
+geprüft, ob wirklich ein Elektroauto angeschlossen ist. Außerdem
+wird dem Elektroauto auch der maximal verfügbare Ladestrom von der
+Ladesäule mitgeteilt. 
+
+![](img/fahrzeugsimulator2.jpg)
+
+Der Simulator setzt das Ladeprotokoll nach DIN EN 61851 bzw.
+J1772 um. Die passende Platine kann für eigene Experimente gekauft werden,
 siehe [Bezugsquelle](#bezugsquelle).  Die Platine entstand, weil ich
 eine Softwareschnittstelle zu einer Wallbox entwickeln wollte. Da der
 Ladevorgang das mindestens das Durchlaufen der Zustände A-C vorsieht hab
@@ -37,7 +44,6 @@ Fehler wie eine defekte Diode und einen Kurzschluss zwischen CP und PE
 simulieren. Ebenso kann man einen Ladevorgang simulieren und dann die
 notwenigen Sicherheitsprüfungen an der Wallbox durchführen.
 
----
 
 # Wie kommuniziert das Elektroauto mit der Ladesäule?
 
@@ -454,7 +460,6 @@ Das Ganze kommt --- zusammen mit einer Rechnung --- so bei Euch an:
 
 ![](img/bausatz.jpg)
 
-
 Der Bausatz kostet 8 Euro, der Versand innerhalb Deutschlands bei kleinen Mengen
 2 Euro --- bei größeren Mengen entsprechend mehr. Zum Bestellen einfach eine
 Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
@@ -462,6 +467,7 @@ schreiben. In der Mail bitte die gewünschte Anzahl sowie die
 Rechnungsadresse angeben. Ich schicke direkt eine Rechnung mit den
 Zahlungsinformationen. Sobald das Geld bei mir eingegangen ist verschicke
 ich zeitnah.
+
 
 # Häufige Fragen (FAQ)
 
