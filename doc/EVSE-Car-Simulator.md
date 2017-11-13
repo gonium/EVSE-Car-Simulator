@@ -11,9 +11,9 @@ keywords: [EVSE, Ladesäule, Elektromobilität, Ladesẗation, Tester,
 # Worum geht es hier?
 
 Eine Ladestation für Elektroautos ist eine glorifizierte
-Drehstromsteckdose. Zum Testen oder Strom nutzen muss man der
-Ladestation ein Auto vorgaukeln --- dazu nutzt man einen Autosimulator.
-Mit der hier vorgestellten Platine kann man z.B.
+Drehstromsteckdose. Damit die Ladestation den Strom anschaltet muss man
+ihr ein Auto vorgaukeln --- dazu nutzt man einen Autosimulator.
+Mit dem hier vorgestellten Simulator kann man z.B.
 
 * Einen Funktionstester für Wallboxen bauen,
 * einen Ladesäule-nach-Wohnwagen-Adapter bauen oder
@@ -31,7 +31,7 @@ Ladesäule mitgeteilt.
 
 ![](img/fahrzeugsimulator2.jpg)
 
-Der Simulator setzt das Ladeprotokoll nach DIN EN 61851 bzw.
+Der Simulator setzt das Ladeprotokoll nach DIN EN 61851-1:2012 bzw.
 J1772 um. Die passende Platine kann für eigene Experimente gekauft werden,
 siehe [Bezugsquelle](#bezugsquelle).  Die Platine entstand, weil ich
 eine Softwareschnittstelle zu einer Wallbox entwickeln wollte. Da der
@@ -49,7 +49,7 @@ notwenigen Sicherheitsprüfungen an der Wallbox durchführen.
 
 Eine Typ 2-Steckdose beinhaltet nicht nur die Stromversorgung, sondern
 auch zwei Kommunikationsleitungen. Über diese werden folgende Funktionen
-koordiniert (vgl. DIN EN 61851-1):
+koordiniert (vgl. DIN EN 61851-1:2012):
 
 * Überprüfung, ob das Fahrzeug vorschriftsmäßig angeschlossen ist,
 * ständige Überwachung des Schutzleiterdurchgangs,
@@ -79,7 +79,7 @@ ebenfalls nur sehr wenige Komponenten erforderlich.
 
 Der maximal zulässige Ladestrom, den das Kabel verkraftet, wird über
 einen Widerstand zwischen PP und der Schutzerde PE kodiert. Nach DIN EN
-61851-1 sind folgende Widerstände zulässig:
+61851-1:2012 sind folgende Widerstände zulässig:
 
 | Widerstand | Maximaler Ladestrom |
 |-----------:|--------------------:|
@@ -387,7 +387,7 @@ durchführen:
 	 wird muss die Ladestation einen Fehler anzeigen und in den Zustand E
 	 wechseln. Es darf kein Ladestrom anliegen!
 
-Der letzte Test ist umstritten: Die DIN 61851-1 bietet hier einen
+Der letzte Test ist umstritten: Die DIN 61851-1:2012 bietet hier einen
 gewissen Interpretationsspielraum, ob der Diodenfehler nur zu Beginn des
 Ladevorgangs (Zustand A) oder auch in den anderen Zuständen permanent
 detektiert werden muss. Die Hager-Ladestationen überwachen permanent.
