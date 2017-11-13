@@ -434,7 +434,8 @@ gewisse Anforderungen erfüllen. Dazu gehören:
 
 1. TT/TN-Netze: Erdungswiderstand kleiner 100 Ohm
 2. TT/TN-Netze: Spannung N-PE nicht größer 10V
-3. Oberwellen können den Ladevorgang beenden. Die Netzversorgung muss IEC 61000-2-1, IEC 61000-2-2 sowie EN 50160 erfüllen.
+3. Spannungsdifferenz der Außenleiter gegen Neutralleiter < 10V
+4. Oberwellen können den Ladevorgang beenden. Die Netzversorgung muss IEC 61000-2-1, IEC 61000-2-2 sowie EN 50160 erfüllen.
 
 Die Relevanz dieser Kriterien ist allerdings umstritten, siehe [diesen
 Thread im
