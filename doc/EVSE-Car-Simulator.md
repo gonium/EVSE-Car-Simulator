@@ -3,7 +3,7 @@ title: 'EVSim: Tester für Ladestationen'
 author: Mathias Dalheimer, [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Frage)
 tags: [EVSE, Ladesäule, Elektromobilität, Tester, Ladestation]
 keywords: [EVSE, Ladesäule, Elektromobilität, Ladesẗation, Tester,
-	Ladestationtester]
+	Schuko, Typ2, Adapter, Ladestationtester]
 
 ---
 
