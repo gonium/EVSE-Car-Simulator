@@ -15,8 +15,8 @@ Drehstromsteckdose. Damit die Ladestation den Strom anschaltet muss man
 ihr ein Auto vorgaukeln --- dazu nutzt man einen Autosimulator.
 Mit dem hier vorgestellten Simulator kann man z.B.
 
-* Einen Funktionstester für Wallboxen bauen,
-* einen Ladesäule-nach-Wohnwagen-Adapter bauen oder
+* Einen [Funktionstester für Wallboxen bauen](#ladestationstester),
+* einen [Ladesäule-nach-Wohnwagen-Adapter bauen](#wohnwagenadapter) oder
 * einen eigenen Laderegler an Typ2-Ladesäulen anschließen.
 
 Natürlich kann man aber auch ein Waffeleisen damit betreiben:
@@ -269,7 +269,7 @@ der Platine markiert.
 
 Mit diesem Grundaufbau kann es nun je nach Anwendung weitergehen.
 
-## Aufbau als Ladestationstester
+## Aufbau als Ladestationstester {#ladestationstester}
 
 ![](img/fahrzeugsimulator.jpg)
 
@@ -325,7 +325,7 @@ Die Kippschalter werden wie folgt verdrahtet:
 | EV ready | J4       | Fahrzeug ladebereit (R2)   | ein (falls J2 ein) |
 
 
-## Prüfung einer Ladestation
+## Prüfung einer Ladestation {#pruefung}
 
 Ladestationen sind Bestandteil der Niederspannungsinstallation und müssen
 gemäß der VDE 0100-600 geprüft werden. Die Prüfung kann in drei Bereiche
@@ -340,12 +340,12 @@ Könnte Wasser in die Ladestation gelangt sein? Ist die Isolierung der
 Kabel brüchig/beschädigt? Sind andere Gefahren erkennbar? Im Anschluss
 kann mit den Messungen begonnen werden:
 
+* Spannung (L-N, L-PE)
 * Durchgängigkeit des Schutzleites $R_{lo}$
 * Isolationswiderstand $R_{iso}$
 * Netzimpedanz $Z_i$
 * Schleifenimpendanz $Z_s$
 * Erdwiderstand
-* Spannung (L-N, L-PE)
 * Ausschaltzeit des FI $t_a$
 * Auslösestromart des FI (Wechsel,- Puls-, Gleichfehlerstrom)
 * Auslösestrom des FI (Flankenanstieg)
@@ -440,6 +440,33 @@ gewisse Anforderungen erfüllen. Dazu gehören:
 Die Relevanz dieser Kriterien ist allerdings umstritten, siehe [diesen
 Thread im
 Goingelectric-Forum.](https://www.goingelectric.de/forum/ladeequipment/z-e-ready-was-bedeutet-das-genau-t27327.html).
+
+ 
+## Aufbau als Wohnwagenadapter {#wohnwagenadapter}
+
+TODO: Bild
+
+Mit diesem Adapter kann man einen Wohnwagen oder Caravan an eine
+Ladestation anschließen, um z.B. während einer Reisepause Strom im
+Fahrzeug zu haben. Der grundlegende Aufbau entspricht dem
+Ladesäulentester oben, wobei auf die Testschalter für den CP-Test (J1 und
+J3) verzichtet werden kann. Ebenso kann man auf den Schalter J2 (EV
+detect) verzichten: Dieser signalisiert, das ein Fahrzeug an der Ladesäule
+angeschlossen ist. Den Schalter ersetzt man durch eine Drahtbrücke,
+sodass beim Anstecken des Adapters permanent ein Fahrzeug signalisiert
+wird. Keinesfalls darf man allerdings auf den Schalter J4 (EV ready)
+verzichten: Ansonsten kann es passieren, das man die Verriegelung des
+Steckers nicht wieder lösen und das Kabel nicht aus der Ladesäule
+gezogen werden kann.
+
+Da aus einer Typ2-Steckdose mehr Strom entnommen werden
+kann, als eine blaue CEE-Steckdose maximal zur Verfügung stellen darf, muss
+unbedingt eine Sicherung vorgesehen werden. Dazu eignet sich z.B. ein
+Leitungsschutzschalter (10A, A-Charakteristik) oder eine flinke
+Schmelzsicherung (10A). Diese muss in die Außenleiter integriert
+werden. Ebenso muss man --- entgegen dem Bild oben --- auf die
+Wetterbeständigkeit achten. Man sollte also einen IP65-Schalter für J4
+und ein entsprechendes Gehäuse mit geeigneten Kabeldurchführungen verwenden.
 
 
 # EVSim kaufen
