@@ -15,7 +15,8 @@ Drehstromsteckdose. Damit die Ladestation den Strom anschaltet muss man
 ihr ein Auto vorgaukeln --- dazu nutzt man einen Autosimulator.
 Mit dem hier vorgestellten Simulator kann man z.B.
 
-* Einen [Funktionstester für Wallboxen bauen](#ladestationstester),
+* Einen [Funktionstester für Wallboxen bauen](#ladestationstester) und
+damit [Ladestationen prüfen](#pruefung),
 * einen [Ladesäule-nach-Wohnwagen-Adapter bauen](#wohnwagenadapter) oder
 * einen eigenen Laderegler an Typ2-Ladesäulen anschließen.
 
