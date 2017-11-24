@@ -440,9 +440,11 @@ gewisse Anforderungen erfüllen. Dazu gehören:
 
 Die Relevanz dieser Kriterien ist allerdings umstritten, siehe [diesen
 Thread im
-Goingelectric-Forum.](https://www.goingelectric.de/forum/ladeequipment/z-e-ready-was-bedeutet-das-genau-t27327.html). Im Wiki von Goingelectric werden außerdem [die technischen Mindestvoraussetzungen](https://www.goingelectric.de/wiki/Renault_ZOE:_Technische_Mindestvoraussetzungen_f%C3%BCr_zuverl%C3%A4ssige_Ladung_Modell_210) für das Laden einer ZOE 210 diskutiert.
+Goingelectric-Forum.](https://www.goingelectric.de/forum/ladeequipment/z-e-ready-was-bedeutet-das-genau-t27327.html).
+Im Wiki von Goingelectric werden außerdem [die technischen
+Mindestvoraussetzungen](https://www.goingelectric.de/wiki/Renault_ZOE:_Technische_Mindestvoraussetzungen_f%C3%BCr_zuverl%C3%A4ssige_Ladung_Modell_210)
+für das Laden einer ZOE 210 diskutiert.
 
- 
 ## Aufbau als Wohnwagenadapter {#wohnwagenadapter}
 
 TODO: Bild
