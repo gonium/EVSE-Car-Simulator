@@ -447,7 +447,7 @@ für das Laden einer ZOE 210 diskutiert.
 
 ## Aufbau als Wohnwagenadapter {#wohnwagenadapter}
 
-TODO: Bild
+![](img/cee-adapter.jpg)
 
 Mit diesem Adapter kann man einen Wohnwagen oder Caravan an eine
 Ladestation anschließen, um z.B. während einer Reisepause Strom im
