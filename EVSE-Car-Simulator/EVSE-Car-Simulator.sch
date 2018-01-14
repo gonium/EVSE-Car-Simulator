@@ -36,8 +36,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Car simulator"
-Date "2017-09-01"
-Rev "0.1"
+Date "2018-01-09"
+Rev "0.3"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -225,36 +225,29 @@ Text Notes 5800 4400 0    118  ~ 24
 CP diagnostics
 Wire Notes Line
 	5500 4050 11150 4050
-Text GLabel 6900 5100 0    60   Input ~ 0
+Text GLabel 7800 5400 0    60   Input ~ 0
 CP
-Text GLabel 6900 5650 0    60   Input ~ 0
+Text GLabel 8250 5400 2    60   Input ~ 0
 PE
-$Comp
-L CONN_01X01 J6
-U 1 1 59A9695E
-P 7200 5100
-F 0 "J6" H 7200 5200 50  0000 C CNN
-F 1 "CP-D" V 7300 5100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 7200 5100 50  0001 C CNN
-F 3 "" H 7200 5100 50  0001 C CNN
-	1    7200 5100
-	1    0    0    -1  
-$EndComp
-$Comp
-L CONN_01X01 J7
-U 1 1 59A969B7
-P 7200 5650
-F 0 "J7" H 7200 5750 50  0000 C CNN
-F 1 "PE-D" V 7300 5650 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 7200 5650 50  0001 C CNN
-F 3 "" H 7200 5650 50  0001 C CNN
-	1    7200 5650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6900 5650 7000 5650
-Wire Wire Line
-	7000 5100 6900 5100
 Text Notes 7000 7050 0    276  Italic 55
 EVSE car simulator
+$Comp
+L CONN_01X02 J6
+U 1 1 5A5523CA
+P 8050 5700
+F 0 "J6" H 8050 5850 50  0000 C CNN
+F 1 "CP Diag" V 8150 5700 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 8050 5700 50  0001 C CNN
+F 3 "" H 8050 5700 50  0001 C CNN
+	1    8050 5700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7800 5400 8000 5400
+Wire Wire Line
+	8000 5400 8000 5500
+Wire Wire Line
+	8100 5500 8100 5400
+Wire Wire Line
+	8100 5400 8250 5400
 $EndSCHEMATC
