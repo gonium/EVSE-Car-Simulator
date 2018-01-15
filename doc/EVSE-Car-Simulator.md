@@ -312,9 +312,13 @@ entsprechenden Phase anliegt.  Um die Fehlersuche zu erleichtern kann
 man auch Messbuchsen für den Anschluss eines Multimeters oder
 Oszilloskops vorsehen.
 
-Für einen sauberen Aufbau empfehle ich die [Kippschalter MS500A (Reichelt-Link)](https://www.reichelt.de/Kippschalter/MS-500A/3/index.html?ACTION=3&GROUPID=7584&ARTICLE=13150&OFFSET=16&) mit [zweipoligen Platinensteckverbindern (Reichelt-Link)](https://www.reichelt.de/Platinen-Steckverbinder/PS-25-2G-WS/3/index.html?ACTION=3&GROUPID=7525&ARTICLE=14825&OFFSET=16&) zu montieren:
+Für einen sauberen Aufbau nutze ich die [Kippschalter MS500A (Reichelt-Link)](https://www.reichelt.de/Kippschalter/MS-500A/3/index.html?ACTION=3&GROUPID=7584&ARTICLE=13150&OFFSET=16&) mit angelöteten, [zweipoligen Platinensteckverbindern (Reichelt-Link)](https://www.reichelt.de/Platinen-Steckverbinder/PS-25-2G-WS/3/index.html?ACTION=3&GROUPID=7525&ARTICLE=14825&OFFSET=16&):
 
 ![](img/platine-schalter.jpg)
+
+Bei diesen Kippschaltern muss man jedoch darauf achten, das im Innern
+des Autosimulators keinesfalls ein Kontakt zur Netzspannung entstehen
+kann. Sicherer ist es, den [Kippschalter KIPP 1824.1101 (Reichelt-Link)](https://www.reichelt.de/Kippschalter/KIPP-1824-1101/3/index.html?ACTION=3&GROUPID=7584&ARTICLE=154582&SEARCH=%252A&START=0&OFFSET=16&) zu verwenden --- dieser entspricht der Schutzklasse II, d.h. es kann keine Netzspannung zum Anwender gelangen.
 
 Die Kippschalter werden wie folgt verdrahtet:
 
