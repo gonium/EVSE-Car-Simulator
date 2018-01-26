@@ -484,9 +484,10 @@ verfügbar. Die Schaltung kann man natürlich recht schnell auf einer
 Lochrasterplatine aufbauen. Wer lieber einen kleinen Bausatz haben
 möchte, kann diesen bei mir bestellen. Der Bausatz enthält:
 
-![](img/platine-leer.jpg)
+![](img/platine-leer-v03.jpg)
 
-* Eine Platine (37x18mm) wie oben beschrieben.
+* Eine Platine (37x18mm) wie oben beschrieben. Die Version 0.2 war eine
+schwarze Platine, die aktuelle Version 0.3 ist grün.
 * Ein Set Widerstände R1-R3 mit verschiedenen Werten für R3, um
 unterschiedliche Strombelastbarkeiten kodieren zu können.
 * Die Schutzdiode (1N4007).
@@ -502,6 +503,34 @@ schreiben. In der Mail bitte die gewünschte Anzahl sowie die
 Rechnungsadresse angeben. Ich schicke direkt eine Rechnung mit den
 Zahlungsinformationen. Sobald das Geld bei mir eingegangen ist verschicke
 ich zeitnah.
+
+## Weitere Bauteile bei Reichelt bestellen
+
+Arne Buss war so nett und hat mir seine Reichelt-Einkaufsliste zur
+Verfügung gestellt. Diese enthält sinnvolle Vorschläge für die Teile,
+die nicht im Bausatz enthalten sind.  Außerdem braucht man natürlich
+noch einen Typ2-Stecker (Infrastrukturseite) und etwas Schrumpfschlauch.
+
+| Anzahl | Bauteil                      | Bestellnummer |
+|-------:|:-----------------------------|---------------|
+| 1 | [Gehäuse Bopla ET 215](https://www.reichelt.de/Kunststoffgehaeuse-BOPLA/BOPLA-ET-215/3/index.html?ACTION=3&GROUPID=7712&ARTICLE=5729&SEARCH=bopla%20et%20215&START=0&OFFSET=100&)|Bopla ET 215|
+| 5 | [Platinensteckverbinder gerade, weiß,
+	2-polig](https://www.reichelt.de/Platinen-Steckverbinder/PS-25-2G-WS/3/index.html?ACTION=3&GROUPID=7525&ARTICLE=14825&OFFSET=16&)|PS 25/2G WS|
+| 4 | [Kippschalter 6(4)A-250VAC, 2x, Ein-Ein](https://www.reichelt.de/Kippschalter/KIPP-1824-1101/3/index.html?ACTION=3&LA=2&ARTICLE=154582&GROUPID=7584&artnr=KIPP+1824.1101&SEARCH=%252A)| KIPP 1824.1101 |
+| 1 | [Bananenbuchse 4mm, vollisoliert, weiß](https://www.reichelt.de/Bananenstecker-Zwergstecker/BB-4-WS/3/index.html?ACTION=3&LA=446&ARTICLE=4898&GROUPID=7473&artnr=BB+4+WS&SEARCH=bananenbuchse)| BB 4 WS |
+| 1 | [Bananenbuchse 4mm, vollisoliert, grün](https://www.reichelt.de/Bananenstecker-Zwergstecker/BB-4-GN/3/index.html?ACTION=3&LA=446&ARTICLE=4895&GROUPID=7473&artnr=BB+4+GN&SEARCH=bananenbuchse)|BB 4 GN|
+| 1 | [LED-Signalleuchte, 10mm, grün, 230V](https://www.reichelt.de/LEDs-10mm-mit-Vorwiderstand/LED-1940-230GN/3/index.html?ACTION=3&LA=446&ARTICLE=32406&GROUPID=3029&artnr=LED+1940-230GN&SEARCH=signalleuchte%2B230V) | LED 1940-230GN |
+| 3 | [Verbindungsdosenklemmen 3fach](https://www.reichelt.de/Luester-Steckklemmen/WAGO-222-413/3/index.html?ACTION=3&GROUPID=5759&ARTICLE=54547&START=0&OFFSET=16&SID=94Wk85LKwQAUAAALN7kf83bba035ef7219f4cc28ccb8ad1528967&LANGUAGE=EN) | WAGO 222-413 |
+| 1 | [Kabelverschraubung M25 grau](https://www.reichelt.de/Kabelverschraubungen-Bopla/MBFK-25/3/index.html?ACTION=3&LA=2&ARTICLE=71547&GROUPID=7738&artnr=MBFK+25&SEARCH=%252A) | MBFK 25 |
+| 1 | [Kabelverschraubung M20 grau](https://www.reichelt.de/Kabelverschraubungen-Bopla/MBFK-20/3/index.html?ACTION=3&LA=2&ARTICLE=71546&GROUPID=7738&artnr=MBFK+20&SEARCH=%252A) | MBFK 20 |
+| 1 | [Gegenmutter für MBFK 25 grau](https://www.reichelt.de/Kabelverschraubungen-Bopla/MGM-25/3/index.html?ACTION=3&LA=517&ARTICLE=44833&GROUPID=7738&trstct=lsbght_sldr::71547) | MGM 25 |
+| 1 | [Gegenmutter für MBFK 20 grau](https://www.reichelt.de/Cable-gland-Bopla/MGM-20/3/index.html?ACTION=3&GROUPID=7738&ARTICLE=44832&START=0&OFFSET=16&SID=92WlNASawQATIAAC2FXDw8584fe181a7efb7adf3106ad947764d5&LANGUAGE=DE) | MGM 20 |
+| 1 | [Sicherungshalter für 5x20 mm](https://www.reichelt.de/Fuse-Holders/PL-FPG2-40/3/index.html?ACTION=3&GROUPID=7659&ARTICLE=53021&START=0&OFFSET=16&SID=92WlNASawQATIAAC2FXDw8584fe181a7efb7adf3106ad947764d5&LANGUAGE=DE) | PL FPG2-40 |
+| 5 | [Sicherung 5x20mm, 250V, 10A, flink](https://www.reichelt.de/Multimeter-Sicherungen/MMS-P7735/3/index.html?ACTION=3&LA=446&ARTICLE=142826&GROUPID=7662&artnr=MMS+P7735&SEARCH=sicherung%2B5x20%2B10A) | MMS P7735 |
+| 1 | [Schutzkontaktkupplung Typ F](https://www.reichelt.de/Netzstecker/PCE-25621-SS/3/index.html?ACTION=3&LA=446&ARTICLE=197636&GROUPID=7486&artnr=PCE+25621-SS&SEARCH=schutzkontaktkupplung) | PCE 25621-SS |
+| 1 | [Gummi-Schlauchleitung für Typ2-Anschluß H07RN-F, 5 x 2,5mm](https://www.reichelt.de/Gummi-Schlauchleitung/H07RN-F525-10M/3/index.html?ACTION=3&LA=2&ARTICLE=85898&GROUPID=5372&artnr=H07RN+F525+10M&SEARCH=%252A) | H07RN F525 10M |
+| 1 | [Gummi-Schlauchleitung für Schukokupplung H07RN-F, 3 x 1,5mm](https://www.reichelt.de/Gummi-Schlauchleitung/H07RN-F315-10M/3/index.html?ACTION=3&LA=2&ARTICLE=24224&GROUPID=5372&artnr=H07RN+F315+10M&SEARCH=%252A) | H07RN-F F315 10M |
+
 
 
 # Häufige Fragen (FAQ)
@@ -545,8 +574,9 @@ hinterherrennen &mdash; und dazu hab ich schlichtweg keine Lust.
 
 # Versionshistorie
 
-| Wann       | Was                                              |
-|:-----------|:-------------------------------------------------|
-| 2017.09.09 | V0.2: Bohrungen für CP/PP/PE vergrößert          |
-| 2017.09.04 | V0.1: Initiales Layout                           |
+| Wann       | Was                                                      |
+|:-----------|:---------------------------------------------------------|
+| 2018.01.25 | V0.3: Anschluss für Diagnose (CP/PE) im Rastermaß 2,54mm |
+| 2017.09.09 | V0.2: Bohrungen für CP/PP/PE vergrößert                  |
+| 2017.09.04 | V0.1: Initiales Layout                                   |
 
