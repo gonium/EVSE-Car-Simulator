@@ -506,7 +506,7 @@ ich zeitnah.
 
 ## Weitere Bauteile bei Reichelt bestellen
 
-Arne Buss war so nett und hat mir seine Reichelt-Einkaufsliste zur
+Arne Buß war so nett und hat mir seine Reichelt-Einkaufsliste zur
 Verfügung gestellt. Diese enthält sinnvolle Vorschläge für die Teile,
 die nicht im Bausatz enthalten sind.  Außerdem braucht man natürlich
 noch einen Typ2-Stecker (Infrastrukturseite) und etwas Schrumpfschlauch.
