@@ -301,8 +301,10 @@ Außerdem kann man natürlich auch ein Gerät an den Simulator anschließen.
 Da aus einer Typ2-Steckdose mehr Strom entnommen werden kann, als eine
 Schukokupplung maximal zur Verfügung stellen darf, muss in diesem Fall
 unbedingt eine Sicherung vorgesehen werden. Dazu eignet sich z.B. ein
-Leitungsschutzschalter (10A, A-Charakteristik) oder eine flinke
-Schmelzsicherung (10A).
+Leitungsschutzschalter (A-Charakteristik) oder eine flinke
+Schmelzsicherung. Der Auslösestrom muß der Dauerbelastbarkeit der
+schwächsten Komponente entsprechen: Bei einer Schukokupplung sind das
+13A, bei einer einphasigen CEE-Kupplung 16A.
 
 Es fehlen nur noch die Kippschalter --- über diese kann man verschiedene
 Fehler und Fahrzeugzustände simulieren. So kann auch ein
@@ -318,7 +320,8 @@ Für einen sauberen Aufbau nutze ich die [Kippschalter MS500A (Reichelt-Link)](h
 
 Bei diesen Kippschaltern muss man jedoch darauf achten, das im Innern
 des Autosimulators keinesfalls ein Kontakt zur Netzspannung entstehen
-kann. Sicherer ist es, den [Kippschalter KIPP 1824.1101 (Reichelt-Link)](https://www.reichelt.de/Kippschalter/KIPP-1824-1101/3/index.html?ACTION=3&GROUPID=7584&ARTICLE=154582&SEARCH=%252A&START=0&OFFSET=16&) zu verwenden --- dieser entspricht der Schutzklasse II, d.h. es kann keine Netzspannung zum Anwender gelangen.
+kann. Sicherer ist es, einen Kippschalter der Schutzklasse II zu
+verwenden, d.h. es kann keine Netzspannung zum Anwender gelangen.
 
 Die Kippschalter werden wie folgt verdrahtet:
 
@@ -469,8 +472,8 @@ gezogen werden kann.
 Da aus einer Typ2-Steckdose mehr Strom entnommen werden
 kann, als eine blaue CEE-Steckdose maximal zur Verfügung stellen darf, muss
 unbedingt eine Sicherung vorgesehen werden. Dazu eignet sich z.B. ein
-Leitungsschutzschalter (10A, A-Charakteristik) oder eine flinke
-Schmelzsicherung (10A). Diese muss in die Außenleiter integriert
+Leitungsschutzschalter (16A, A-Charakteristik) oder eine flinke
+Schmelzsicherung (16A). Diese muss in die Außenleiter integriert
 werden. Ebenso muss man --- entgegen dem Bild oben --- auf die
 Wetterbeständigkeit achten. Man sollte also einen IP65-Schalter für J4
 und ein entsprechendes Gehäuse mit geeigneten Kabeldurchführungen verwenden.
@@ -507,15 +510,25 @@ ich zeitnah.
 ## Weitere Bauteile bei Reichelt bestellen
 
 Arne Buß war so nett und hat mir seine Reichelt-Einkaufsliste zur
-Verfügung gestellt. Diese enthält sinnvolle Vorschläge für die Teile,
-die nicht im Bausatz enthalten sind.  Außerdem braucht man natürlich
-noch einen Typ2-Stecker (Infrastrukturseite) und etwas Schrumpfschlauch.
+Verfügung gestellt. Diese enthält Vorschläge für die Teile,
+die nicht im Bausatz enthalten sind. Dazu folgende Anmerkungen:
+
+1. Die Gummi-Schlauchleitung ist für einen einphasigen Aufbau gedacht,
+	 d.h. zwei Adern werden für CP und PP genutzt. Alternativ kann man
+	 natürlich auf eine Schlauchleitung mit zusätzlichen Signalleitern
+	 ausweichen.
+2. Die Kippschalter (KIPP 1824.1101) sehen recht groß aus. Da ich diese
+	 noch nicht vor mir liegen hatte weiß ich nicht, ob diese in das
+	 Bopla-Gehäuse passen.
+
+Außerdem braucht man natürlich noch einen Typ2-Stecker
+(Infrastrukturseite) und etwas Schrumpfschlauch.
+
 
 | Anzahl | Bauteil                      | Bestellnummer |
 |-------:|:-----------------------------|---------------|
 | 1 | [Gehäuse Bopla ET 215](https://www.reichelt.de/Kunststoffgehaeuse-BOPLA/BOPLA-ET-215/3/index.html?ACTION=3&GROUPID=7712&ARTICLE=5729&SEARCH=bopla%20et%20215&START=0&OFFSET=100&)|Bopla ET 215|
-| 5 | [Platinensteckverbinder gerade, weiß,
-	2-polig](https://www.reichelt.de/Platinen-Steckverbinder/PS-25-2G-WS/3/index.html?ACTION=3&GROUPID=7525&ARTICLE=14825&OFFSET=16&)|PS 25/2G WS|
+| 5 | [Platinensteckverbinder gerade, weiß, 2-polig](https://www.reichelt.de/Platinen-Steckverbinder/PS-25-2G-WS/3/index.html?ACTION=3&GROUPID=7525&ARTICLE=14825&OFFSET=16&)|PS 25/2G WS|
 | 4 | [Kippschalter 6(4)A-250VAC, 2x, Ein-Ein](https://www.reichelt.de/Kippschalter/KIPP-1824-1101/3/index.html?ACTION=3&LA=2&ARTICLE=154582&GROUPID=7584&artnr=KIPP+1824.1101&SEARCH=%252A)| KIPP 1824.1101 |
 | 1 | [Bananenbuchse 4mm, vollisoliert, weiß](https://www.reichelt.de/Bananenstecker-Zwergstecker/BB-4-WS/3/index.html?ACTION=3&LA=446&ARTICLE=4898&GROUPID=7473&artnr=BB+4+WS&SEARCH=bananenbuchse)| BB 4 WS |
 | 1 | [Bananenbuchse 4mm, vollisoliert, grün](https://www.reichelt.de/Bananenstecker-Zwergstecker/BB-4-GN/3/index.html?ACTION=3&LA=446&ARTICLE=4895&GROUPID=7473&artnr=BB+4+GN&SEARCH=bananenbuchse)|BB 4 GN|
