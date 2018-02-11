@@ -499,7 +499,7 @@ Das Ganze kommt --- zusammen mit einer Rechnung --- so bei Euch an:
 
 ![](img/bausatz.jpg)
 
-Der Bausatz kostet 6 Euro, der Versand innerhalb Deutschlands bei kleinen Mengen
+Der Bausatz kostet 7 Euro, der Versand innerhalb Deutschlands bei kleinen Mengen
 2 Euro --- bei größeren Mengen entsprechend mehr. Zum Bestellen einfach eine
 Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
 schreiben. In der Mail bitte die gewünschte Anzahl sowie die
