@@ -503,9 +503,9 @@ Der Bausatz kostet 7 Euro, der Versand innerhalb Deutschlands bei kleinen Mengen
 2 Euro --- bei größeren Mengen entsprechend mehr. Zum Bestellen einfach eine
 Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
 schreiben. In der Mail bitte die gewünschte Anzahl sowie die
-Rechnungsadresse angeben. Ich schicke direkt eine Rechnung mit den
+Rechnungsadresse angeben. Ich schicke direkt eine Auftragsbestätigung mit den
 Zahlungsinformationen. Sobald das Geld bei mir eingegangen ist verschicke
-ich zeitnah.
+ich zeitnah --- natürlich mit einer Rechnung.
 
 ## Weitere Bauteile bei Reichelt bestellen
 
