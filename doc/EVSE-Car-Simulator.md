@@ -509,7 +509,7 @@ ich zeitnah --- natürlich mit einer Rechnung.
 
 ## Weitere Bauteile bei Reichelt bestellen
 
-Arne Buß war so nett und hat mir seine Reichelt-Einkaufsliste zur
+Arne war so nett und hat mir seine Reichelt-Einkaufsliste zur
 Verfügung gestellt. Diese enthält Vorschläge für die Teile,
 die nicht im Bausatz enthalten sind. Dazu folgende Anmerkungen:
 
