@@ -499,13 +499,18 @@ Das Ganze kommt --- zusammen mit einer Rechnung --- so bei Euch an:
 
 ![](img/bausatz.jpg)
 
-Der Bausatz kostet 7 Euro, der Versand innerhalb Deutschlands bei kleinen Mengen
+Der Bausatz kostet 6 Euro, der Versand innerhalb Deutschlands bei kleinen Mengen
 2 Euro --- bei größeren Mengen entsprechend mehr. Zum Bestellen einfach eine
 Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
 schreiben. In der Mail bitte die gewünschte Anzahl sowie die
 Rechnungsadresse angeben. Ich schicke direkt eine Auftragsbestätigung mit den
 Zahlungsinformationen. Sobald das Geld bei mir eingegangen ist verschicke
 ich zeitnah --- natürlich mit einer Rechnung.
+
+<!-- 
+
+TODO: Die Bauteilliste beinhaltet ungeprüfte Bauteile. Daher vorerst
+auskommentiert, bis alle Bauteile tatsächlich geprüft wurden.
 
 ## Weitere Bauteile bei Reichelt bestellen
 
@@ -517,9 +522,11 @@ die nicht im Bausatz enthalten sind. Dazu folgende Anmerkungen:
 	 d.h. zwei Adern werden für CP und PP genutzt. Alternativ kann man
 	 natürlich auf eine Schlauchleitung mit zusätzlichen Signalleitern
 	 ausweichen.
-2. Die Kippschalter (KIPP 1824.1101) sehen recht groß aus. Da ich diese
-	 noch nicht vor mir liegen hatte weiß ich nicht, ob diese in das
-	 Bopla-Gehäuse passen.
+
+2. Ich habe teilweise andere Bauteile verwendet, daher kann ich nicht
+	 garantieren das alles genauso passt wie oben beschrieben. Die
+	 Kippschalter (KIPP 1824.1101) sehen recht groß aus. Ich weiß nicht, ob
+	 diese in das Bopla-Gehäuse passen.
 
 Außerdem braucht man natürlich noch einen Typ2-Stecker
 (Infrastrukturseite) und etwas Schrumpfschlauch.
@@ -543,8 +550,7 @@ Außerdem braucht man natürlich noch einen Typ2-Stecker
 | 1 | [Schutzkontaktkupplung Typ F](https://www.reichelt.de/Netzstecker/PCE-25621-SS/3/index.html?ACTION=3&LA=446&ARTICLE=197636&GROUPID=7486&artnr=PCE+25621-SS&SEARCH=schutzkontaktkupplung) | PCE 25621-SS |
 | 1 | [Gummi-Schlauchleitung für Typ2-Anschluß H07RN-F, 5 x 2,5mm](https://www.reichelt.de/Gummi-Schlauchleitung/H07RN-F525-10M/3/index.html?ACTION=3&LA=2&ARTICLE=85898&GROUPID=5372&artnr=H07RN+F525+10M&SEARCH=%252A) | H07RN F525 10M |
 | 1 | [Gummi-Schlauchleitung für Schukokupplung H07RN-F, 3 x 1,5mm](https://www.reichelt.de/Gummi-Schlauchleitung/H07RN-F315-10M/3/index.html?ACTION=3&LA=2&ARTICLE=24224&GROUPID=5372&artnr=H07RN+F315+10M&SEARCH=%252A) | H07RN-F F315 10M |
-
-
+-->
 
 # Häufige Fragen (FAQ)
 
