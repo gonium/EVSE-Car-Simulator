@@ -460,11 +460,10 @@ Mit diesem Adapter kann man einen Wohnwagen oder Caravan an eine
 Ladestation anschließen, um z.B. während einer Reisepause Strom im
 Fahrzeug zu haben. Der grundlegende Aufbau entspricht dem
 Ladesäulentester oben, wobei auf die Testschalter für den CP-Test (J1 und
-J3) verzichtet werden kann. Ebenso kann man auf den Schalter J2 (EV
-detect) verzichten: Dieser signalisiert, das ein Fahrzeug an der Ladesäule
-angeschlossen ist. Den Schalter ersetzt man durch eine Drahtbrücke,
-sodass beim Anstecken des Adapters permanent ein Fahrzeug signalisiert
-wird. Keinesfalls darf man allerdings auf den Schalter J4 (EV ready)
+J3) verzichtet werden kann. Ebenso kann man auf den Schalter J4 (EV
+ready) verzichten: Dieser signalisiert die Ladebereitschaft, sobald der
+Adapter angeschlossen ist. Den Schalter ersetzt man einfach durch eine
+Drahtbrücke. Keinesfalls darf man allerdings auf den Schalter J2 (EV detect)
 verzichten: Ansonsten kann es passieren, das man die Verriegelung des
 Steckers nicht wieder lösen und das Kabel nicht aus der Ladesäule
 gezogen werden kann.
