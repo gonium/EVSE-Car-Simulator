@@ -598,3 +598,5 @@ hinterherrennen &mdash; und dazu hab ich schlichtweg keine Lust.
 | 2017.09.09 | V0.2: Bohrungen für CP/PP/PE vergrößert                  |
 | 2017.09.04 | V0.1: Initiales Layout                                   |
 
+<!-- VG Wort Zählpixel -->
+<img src="http://vg06.met.vgwort.de/na/0e8d37d00aea48faa59b146e02bad9fc" width="1" height="1" alt="">
