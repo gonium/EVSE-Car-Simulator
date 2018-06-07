@@ -23,7 +23,8 @@ all : $(PDFS) $(HTMLS) $(EPUBS)
 	  -s --smart --number-section --toc --mathjax \
 	  --email-obfuscation=javascript --to html5 \
 	  -H headermeta.html -H pandoc.css \
-	  -H googleanalytics.js
+# 	Deactivate google analytics
+#	  -H googleanalytics.js
 
 # TODO: Incorporate
 # * http://bbebooksthailand.com/bb-epub-kindlegen-tutorial.html
