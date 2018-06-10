@@ -349,7 +349,7 @@ Kabel brüchig/beschädigt? Sind andere Gefahren erkennbar? Im Anschluss
 kann mit den Messungen begonnen werden:
 
 * Spannung (L-N, L-PE)
-* Durchgängigkeit des Schutzleites $R_{lo}$
+* Durchgängigkeit des Schutzleiters $R_{lo}$
 * Isolationswiderstand $R_{iso}$
 * Netzimpedanz $Z_i$
 * Schleifenimpendanz $Z_s$
@@ -412,11 +412,15 @@ der Drehstrom angeschaltet. In meinen Augen ist das hochgefährlich. Man
 sollte also die korrekte Funktion unbedingt prüfen und sich nicht auf
 ein TÜV-Siegel verlassen!
 
-Als letztes muss auch der Dutycycle des Control Pilots überprüft werden,
-da dieser den maximalen Ladestrom der Ladesäule dem Auto mitteilt. Hier
-sollte man prüfen, ob z.B. ein Ladekabel mit 13A maximaler Belastbarkeit
-korrekt von einer mit 20A abgesicherten Ladestation abgelehnt wird.
+Weiterhin sollte man prüfen, ob Ladekabel mit zu kleiner maximaler
+Strombelastbarkeit von der Ladestation abgelehnt werden. Beispielsweise
+sollte ein Ladekabel mit 13A maximaler Belastbarkeit von einer mit 20A
+abgesicherten Ladestation abgelehnt werden. Ansonsten könnte bei einem
+Fehler das Kabel überlastet werden, ohne das der Leitungsschutzschalter
+der Ladestation auslöst.
 
+Als letztes muss auch der Dutycycle des Control Pilots überprüft werden,
+da dieser den maximalen Ladestrom der Ladesäule dem Auto mitteilt. 
 Mit einem Oszilloskop oder Multimeter zwischen CP und PE misst man dafür
 den Duty Cycle und kann diesen dann in den Ladestrom umrechnen. Das
 folgende Bild zeigt eine Ladestation von Hager im Zustand C:
