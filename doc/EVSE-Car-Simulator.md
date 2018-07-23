@@ -510,10 +510,19 @@ Rechnungsadresse angeben. Ich schicke direkt eine Auftragsbestätigung mit den
 Zahlungsinformationen. Sobald das Geld bei mir eingegangen ist verschicke
 ich zeitnah --- natürlich mit einer Rechnung.
 
+**ACHTUNG: 
+Ich bin vom 23.07. bis voraussichtlich zum 28.09.2018 nicht erreichbar.
+Bestellungen und Fragen kann ich leider erst nach dem 28.09.
+bearbeiten. Die Bestellungen werden nach Reihenfolge des Eingangs (s.o.)
+bearbeitet, d.h. wer zuerst eine Bestell-Email schickt kommt zuerst
+dran. Ich bitte diese Verzögerung zu entschuldigen.**
+
+
 <!-- 
 
 TODO: Die Bauteilliste beinhaltet ungeprüfte Bauteile. Daher vorerst
 auskommentiert, bis alle Bauteile tatsächlich geprüft wurden.
+
 
 ## Weitere Bauteile bei Reichelt bestellen
 
