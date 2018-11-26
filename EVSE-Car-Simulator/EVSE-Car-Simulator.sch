@@ -6,47 +6,14 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Car simulator"
-Date "2018-01-09"
-Rev "0.3"
-Comp ""
+Date "2018-11-26"
+Rev "0.5"
+Comp "Mathias Dalheimer"
 Comment1 ""
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L EVSE-Car-Simulator-rescue:R-RESCUE-EVSE-Car-Simulator R2
-U 1 1 59A9487E
-P 4050 5550
-F 0 "R2" V 4130 5550 50  0000 C CNN
-F 1 "1k2" V 4050 5550 50  0000 C CNN
-F 2 "Resistors_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 3980 5550 50  0001 C CNN
-F 3 "" H 4050 5550 50  0001 C CNN
-	1    4050 5550
-	0    -1   -1   0   
-$EndComp
-$Comp
-L EVSE-Car-Simulator-rescue:D D1
-U 1 1 59A949FC
-P 1800 2150
-F 0 "D1" H 1800 2250 50  0000 C CNN
-F 1 "1N4007" H 1800 2050 50  0000 C CNN
-F 2 "Diodes_THT:D_DO-41_SOD81_P7.62mm_Horizontal" H 1800 2150 50  0001 C CNN
-F 3 "" H 1800 2150 50  0001 C CNN
-	1    1800 2150
-	-1   0    0    1   
-$EndComp
-$Comp
-L EVSE-Car-Simulator-rescue:CONN_01X02 J4
-U 1 1 59A94BAC
-P 3700 5750
-F 0 "J4" H 3700 5900 50  0000 C CNN
-F 1 "EV ready" V 3800 5750 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 3700 5750 50  0001 C CNN
-F 3 "" H 3700 5750 50  0001 C CNN
-	1    3700 5750
-	0    1    1    0   
-$EndComp
 Text GLabel 7200 2250 2    60   Input ~ 0
 CP
 Text GLabel 7200 2350 2    60   Input ~ 0
@@ -89,108 +56,14 @@ Wire Wire Line
 	8450 2300 8600 2300
 Wire Wire Line
 	8900 2300 9050 2300
-Text GLabel 1550 2150 0    60   Input ~ 0
-N1
-Text GLabel 2050 2150 2    60   Input ~ 0
-PE
-Wire Wire Line
-	1550 2150 1600 2150
-Wire Wire Line
-	1950 2150 2000 2150
-Text GLabel 3450 5550 0    60   Input ~ 0
-CP
-Text GLabel 4350 5550 2    60   Input ~ 0
-N1
-Wire Wire Line
-	3450 5550 3650 5550
-Wire Wire Line
-	3750 5550 3900 5550
-Wire Wire Line
-	4200 5550 4350 5550
-Text GLabel 1550 5500 0    60   Input ~ 0
-CP
-$Comp
-L EVSE-Car-Simulator-rescue:R-RESCUE-EVSE-Car-Simulator R1
-U 1 1 59A954A9
-P 2150 5500
-F 0 "R1" V 2230 5500 50  0000 C CNN
-F 1 "2k7" V 2150 5500 50  0000 C CNN
-F 2 "Resistors_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 2080 5500 50  0001 C CNN
-F 3 "" H 2150 5500 50  0001 C CNN
-	1    2150 5500
-	0    -1   -1   0   
-$EndComp
-$Comp
-L EVSE-Car-Simulator-rescue:CONN_01X02 J2
-U 1 1 59A95505
-P 1800 5700
-F 0 "J2" H 1800 5850 50  0000 C CNN
-F 1 "EV detect" V 1900 5700 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1800 5700 50  0001 C CNN
-F 3 "" H 1800 5700 50  0001 C CNN
-	1    1800 5700
-	0    1    1    0   
-$EndComp
-Text GLabel 2450 5500 2    60   Input ~ 0
-N1
-Wire Wire Line
-	1550 5500 1750 5500
-Wire Wire Line
-	1850 5500 2000 5500
-Wire Wire Line
-	2300 5500 2450 5500
-$Comp
-L EVSE-Car-Simulator-rescue:CONN_01X02 J1
-U 1 1 59A95609
-P 1800 2550
-F 0 "J1" H 1800 2700 50  0000 C CNN
-F 1 "D-fault" V 1900 2550 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1800 2550 50  0001 C CNN
-F 3 "" H 1800 2550 50  0001 C CNN
-	1    1800 2550
-	0    1    1    0   
-$EndComp
-$Comp
-L EVSE-Car-Simulator-rescue:CONN_01X02 J3
-U 1 1 59A956A7
-P 3650 2350
-F 0 "J3" H 3650 2500 50  0000 C CNN
-F 1 "CP short" V 3750 2350 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 3650 2350 50  0001 C CNN
-F 3 "" H 3650 2350 50  0001 C CNN
-	1    3650 2350
-	0    1    1    0   
-$EndComp
-Text GLabel 3400 2150 0    60   Input ~ 0
-CP
-Text GLabel 3900 2150 2    60   Input ~ 0
-N1
-Wire Wire Line
-	3400 2150 3600 2150
-Wire Wire Line
-	3700 2150 3900 2150
-Wire Wire Line
-	1850 2350 2000 2350
-Wire Wire Line
-	1750 2350 1600 2350
-Wire Wire Line
-	1600 2350 1600 2150
-Connection ~ 1600 2150
-Wire Wire Line
-	2000 2350 2000 2150
-Connection ~ 2000 2150
 Text Notes 8350 3000 0    60   ~ 0
 Current coding:\nmax. 13A: 1k5 Ohm\nmax. 20A: 680 Ohm\nmax. 32A: 220 Ohm\nmax 63A: 100 Ohm
 Text Notes 5700 850  0    118  ~ 24
 Type 2 connector
-Text Notes 750  4400 0    118  ~ 24
+Text Notes 650  800  0    118  ~ 24
 Vehicle status
-Text Notes 750  900  0    118  ~ 24
-Vehicle fault simulation
 Wire Notes Line
 	5400 650  5400 7700
-Wire Notes Line
-	5350 4050 600  4050
 Text Notes 5800 4400 0    118  ~ 24
 CP diagnostics
 Wire Notes Line
@@ -220,8 +93,143 @@ Wire Wire Line
 	8100 5500 8100 5400
 Wire Wire Line
 	8100 5400 8250 5400
+Text GLabel 1550 2650 0    60   Input ~ 0
+CP
+$Comp
+L EVSE-Car-Simulator-rescue:D D1
+U 1 1 5BFBFA68
+P 2300 3550
+F 0 "D1" H 2300 3650 50  0000 C CNN
+F 1 "1N4007" H 2300 3450 50  0000 C CNN
+F 2 "Diodes_THT:D_DO-41_SOD81_P7.62mm_Horizontal" H 2300 3550 50  0001 C CNN
+F 3 "" H 2300 3550 50  0001 C CNN
+	1    2300 3550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L EVSE-Car-Simulator-rescue:CONN_01X02 J2
+U 1 1 5BFC007A
+P 1900 3000
+F 0 "J2" H 1900 3150 50  0000 C CNN
+F 1 "A/B" V 2000 3000 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1900 3000 50  0001 C CNN
+F 3 "" H 1900 3000 50  0001 C CNN
+	1    1900 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L EVSE-Car-Simulator-rescue:R-RESCUE-EVSE-Car-Simulator R1
+U 1 1 5BFC0152
+P 2750 2950
+F 0 "R1" V 2830 2950 50  0000 C CNN
+F 1 "2k7" V 2750 2950 50  0000 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 2680 2950 50  0001 C CNN
+F 3 "" H 2750 2950 50  0001 C CNN
+	1    2750 2950
+	1    0    0    -1  
+$EndComp
+Text GLabel 1550 1950 0    60   Input ~ 0
+PE
+$Comp
+L EVSE-Car-Simulator-rescue:CONN_01X02 J4
+U 1 1 5BFC026E
+P 3050 3300
+F 0 "J4" H 3050 3450 50  0000 C CNN
+F 1 "C" V 3150 3300 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 3050 3300 50  0001 C CNN
+F 3 "" H 3050 3300 50  0001 C CNN
+	1    3050 3300
+	-1   0    0    1   
+$EndComp
+$Comp
+L EVSE-Car-Simulator-rescue:R-RESCUE-EVSE-Car-Simulator R2
+U 1 1 5BFC0392
+P 3250 2950
+F 0 "R2" V 3330 2950 50  0000 C CNN
+F 1 "1k2" V 3250 2950 50  0000 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 3180 2950 50  0001 C CNN
+F 3 "" H 3250 2950 50  0001 C CNN
+	1    3250 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L EVSE-Car-Simulator-rescue:CONN_01X02 J3
+U 1 1 5BFC047F
+P 1900 3550
+F 0 "J3" H 1900 3700 50  0000 C CNN
+F 1 "D-fault" V 2000 3550 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1900 3550 50  0001 C CNN
+F 3 "" H 1900 3550 50  0001 C CNN
+	1    1900 3550
+	-1   0    0    1   
+$EndComp
 Wire Wire Line
-	1600 2150 1650 2150
+	2100 3500 2100 3300
 Wire Wire Line
-	2000 2150 2050 2150
+	2100 3300 2300 3300
+Wire Wire Line
+	2300 3300 2300 3400
+Wire Wire Line
+	2300 3700 2300 3800
+Wire Wire Line
+	3250 3800 3250 3350
+Wire Wire Line
+	3250 3250 3250 3100
+Wire Wire Line
+	2100 3600 2100 3800
+Wire Wire Line
+	2100 3800 2300 3800
+Connection ~ 2300 3800
+Wire Wire Line
+	2750 1950 2750 2800
+Wire Wire Line
+	3250 1950 3250 2800
+Wire Wire Line
+	2300 1950 2300 2250
+$Comp
+L EVSE-Car-Simulator-rescue:CONN_01X02 J1
+U 1 1 5BFC0511
+P 1900 2300
+F 0 "J1" H 1900 2450 50  0000 C CNN
+F 1 "E" V 2000 2300 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1900 2300 50  0001 C CNN
+F 3 "" H 1900 2300 50  0001 C CNN
+	1    1900 2300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2300 3300 2300 3050
+Wire Wire Line
+	2300 3050 2100 3050
+Connection ~ 2300 3300
+Wire Wire Line
+	2100 2950 2300 2950
+Wire Wire Line
+	2750 3100 2750 3800
+Connection ~ 2750 1950
+Connection ~ 2750 3800
+Wire Wire Line
+	2100 2250 2300 2250
+Wire Wire Line
+	2100 2350 2300 2350
+Wire Wire Line
+	2300 2350 2300 2650
+Wire Wire Line
+	1550 2650 2300 2650
+Connection ~ 2300 2650
+Wire Wire Line
+	2300 2650 2300 2950
+Wire Wire Line
+	1550 1950 2300 1950
+Connection ~ 2300 1950
+Wire Wire Line
+	2750 1950 3250 1950
+Wire Wire Line
+	2750 3800 3250 3800
+Wire Wire Line
+	2300 3800 2750 3800
+Wire Wire Line
+	2300 1950 2750 1950
+Text Notes 1400 5250 0    60   ~ 0
+Vehicle state:\nA: Vehicle disconnected\nB: Vehicle connected\nC: Vehicle requested charging\nD: Vehicle requested vented charging (not implemented)\nE: CP and PE shorted -- cable or vehicle failure\nF: EVSE failure (not implemented)
 $EndSCHEMATC
