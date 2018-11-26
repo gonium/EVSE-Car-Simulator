@@ -1,6 +1,36 @@
-EESchema Schematic File Version 4
+EESchema Schematic File Version 2
+LIBS:EVSE-Car-Simulator-rescue
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
 LIBS:EVSE-Car-Simulator-cache
-EELAYER 26 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -15,7 +45,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L EVSE-Car-Simulator-rescue:R-RESCUE-EVSE-Car-Simulator R2
+L R-RESCUE-EVSE-Car-Simulator R2
 U 1 1 59A9487E
 P 4050 5550
 F 0 "R2" V 4130 5550 50  0000 C CNN
@@ -26,7 +56,7 @@ F 3 "" H 4050 5550 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L EVSE-Car-Simulator-rescue:D D1
+L D D1
 U 1 1 59A949FC
 P 1800 2150
 F 0 "D1" H 1800 2250 50  0000 C CNN
@@ -37,7 +67,7 @@ F 3 "" H 1800 2150 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L EVSE-Car-Simulator-rescue:CONN_01X02 J4
+L CONN_01X02 J4
 U 1 1 59A94BAC
 P 3700 5750
 F 0 "J4" H 3700 5900 50  0000 C CNN
@@ -56,7 +86,7 @@ Wire Wire Line
 Wire Wire Line
 	7200 2250 7050 2250
 $Comp
-L EVSE-Car-Simulator-rescue:CONN_01X03 J5
+L CONN_01X03 J5
 U 1 1 59A94ED4
 P 6850 2250
 F 0 "J5" H 6850 2450 50  0000 C CNN
@@ -71,7 +101,7 @@ PP
 Wire Wire Line
 	7200 2150 7050 2150
 $Comp
-L EVSE-Car-Simulator-rescue:R-RESCUE-EVSE-Car-Simulator R3
+L R-RESCUE-EVSE-Car-Simulator R3
 U 1 1 59A94F9B
 P 8750 2300
 F 0 "R3" V 8830 2300 50  0000 C CNN
@@ -94,9 +124,9 @@ N1
 Text GLabel 2050 2150 2    60   Input ~ 0
 PE
 Wire Wire Line
-	1550 2150 1600 2150
+	1550 2150 1650 2150
 Wire Wire Line
-	1950 2150 2000 2150
+	1950 2150 2050 2150
 Text GLabel 3450 5550 0    60   Input ~ 0
 CP
 Text GLabel 4350 5550 2    60   Input ~ 0
@@ -110,7 +140,7 @@ Wire Wire Line
 Text GLabel 1550 5500 0    60   Input ~ 0
 CP
 $Comp
-L EVSE-Car-Simulator-rescue:R-RESCUE-EVSE-Car-Simulator R1
+L R-RESCUE-EVSE-Car-Simulator R1
 U 1 1 59A954A9
 P 2150 5500
 F 0 "R1" V 2230 5500 50  0000 C CNN
@@ -121,7 +151,7 @@ F 3 "" H 2150 5500 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L EVSE-Car-Simulator-rescue:CONN_01X02 J2
+L CONN_01X02 J2
 U 1 1 59A95505
 P 1800 5700
 F 0 "J2" H 1800 5850 50  0000 C CNN
@@ -140,7 +170,7 @@ Wire Wire Line
 Wire Wire Line
 	2300 5500 2450 5500
 $Comp
-L EVSE-Car-Simulator-rescue:CONN_01X02 J1
+L CONN_01X02 J1
 U 1 1 59A95609
 P 1800 2550
 F 0 "J1" H 1800 2700 50  0000 C CNN
@@ -151,7 +181,7 @@ F 3 "" H 1800 2550 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L EVSE-Car-Simulator-rescue:CONN_01X02 J3
+L CONN_01X02 J3
 U 1 1 59A956A7
 P 3650 2350
 F 0 "J3" H 3650 2500 50  0000 C CNN
@@ -202,7 +232,7 @@ PE
 Text Notes 7000 7050 0    276  Italic 55
 EVSE car simulator
 $Comp
-L EVSE-Car-Simulator-rescue:CONN_01X02 J6
+L CONN_01X02 J6
 U 1 1 5A5523CA
 P 8050 5700
 F 0 "J6" H 8050 5850 50  0000 C CNN
@@ -220,8 +250,4 @@ Wire Wire Line
 	8100 5500 8100 5400
 Wire Wire Line
 	8100 5400 8250 5400
-Wire Wire Line
-	1600 2150 1650 2150
-Wire Wire Line
-	2000 2150 2050 2150
 $EndSCHEMATC

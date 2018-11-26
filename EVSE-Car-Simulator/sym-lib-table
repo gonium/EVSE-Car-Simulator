@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name EVSE-Car-Simulator-rescue)(type Legacy)(uri ${KIPRJMOD}/EVSE-Car-Simulator-rescue.lib)(options "")(descr ""))
+)
