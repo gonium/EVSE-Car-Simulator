@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 23)
+    (drawings 27)
     (tracks 47)
     (zones 0)
     (modules 17)
@@ -680,6 +680,10 @@
     (pad 1 thru_hole circle (at 0 0) (size 5.7 5.7) (drill 3.2) (layers *.Cu *.Mask))
   )
 
+  (gr_line (start 40.513 40.513) (end 40.513 81.407) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 110.617 40.513) (end 40.513 40.513) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 110.617 81.407) (end 110.617 40.513) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 40.513 81.407) (end 110.617 81.407) (layer Edge.Cuts) (width 0.15))
   (gr_text "diode\nfault" (at 88.9 54.61) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.25)))
   )
