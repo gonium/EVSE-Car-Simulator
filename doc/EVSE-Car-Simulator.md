@@ -146,8 +146,8 @@ selten. Daher ist dieser Widerstand auf der Platine nicht vorgesehen.*
 
 Die Zustände E und F sind Fehlerzustände, in denen die Stromversorgung
 zum Elektroauto unterbrochen wird. E zeigt einen Kurzschluss zwischen CP
-und PE an. Der Zustand F kennzeichnet einen Ausfall der Wallbox, d.h.
-zwischen CP und PE besteht keine Verbindung.
+und PE an. Der Zustand F kennzeichnet einen Ausfall der Wallbox:
+Zwischen CP und PE besteht keine Verbindung.
 
 Die Ladesäule teilt dem Auto den zur Verfügung stehenden Ladestrom mit.
 Dafür wird der Duty Cycle des PWM-Signals angepasst. Dabei gibt es eine
@@ -167,7 +167,13 @@ sieht das so aus:
 
 # Funktionsweise der Platine
 
-Der komplette [Schaltplan ist hier (PDF)](img/Schaltplan.pdf). Die
+**Achtung: In die Versionen kleiner 0.5 hat sich ein Fehler
+eingeschlichen --- diese Schaltungen funktionieren zwar, folgen aber dem
+Signalablauf des "Simplified Mode". An einigen Ladereglern führt dies
+dazu, das der Ladestrom auf 10A begrenzt wird. Im Folgenden beschreibe
+ich die Version 0.5.**
+
+Der komplette [Schaltplan (v0.5) ist hier (PDF)](img/Schaltplan-v0.5.pdf). Die
 einzelnen Komponenten stelle ich im Folgenden vor. Zunächst einmal
 bietet die Platine eine Anschlußmöglichkeit für PP, CP und PE:
 
@@ -599,6 +605,7 @@ hinterherrennen &mdash; und dazu hab ich schlichtweg keine Lust.
 
 | Wann       | Was                                                      |
 |:-----------|:---------------------------------------------------------|
+| 2019.01.03 | V0.5: Fehler simplified mode behoben, neues Layout       |
 | 2018.01.25 | V0.3: Anschluss für Diagnose (CP/PE) im Rastermaß 2,54mm |
 | 2017.09.09 | V0.2: Bohrungen für CP/PP/PE vergrößert                  |
 | 2017.09.04 | V0.1: Initiales Layout                                   |
