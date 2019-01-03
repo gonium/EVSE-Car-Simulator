@@ -199,42 +199,34 @@ Widerstandswert bestückt:
 ![](img/pp-pe-resistor.png)
 
 Normalerweise wird dieser Widerstand direkt im Typ2-Stecker montiert.
-Wer allerdings aus Platzgründen die Platine direkt in den Stecker
-einbaut, hat hier die Möglichkeit, den Widerstand zu bestücken.
+Allerdings bietet die Platine auch die Möglichkeit, den Widerstand
+direkt auf die Platine zu löten --- je nach Anwendungsfall ist das eine
+oder das andere praktischer.
 
-Damit ein Ladestrom freigegeben wird, muss das Elektroauto zwei weitere
-Widerstände in CP einschalten (N1 ist ein internes Netz):
+Damit ein Ladestrom freigegeben wird, muss das Elektroauto das CP-Signal
+entsprechend ändern. Die Platine bietet dazu folgende Möglichkeiten:
 
-![](img/vehicle-detected.png)
-![](img/vehicle-ready.png)
+![](img/CP_functions.png)
 
-R1 (2k7 Ohm, min. 0,5 Watt) signalisiert der Wallbox, das ein
-Elektroauto angeschlossen ist. Der Widerstand R2 (1k2, min. 0,5W)
-zeigt die Ladebereitschaft an. Die beiden Widerstände werden über einen
-separaten Anschluß (J2 und J4) geschleift, damit man über je einen
-Kippschalter die Widerstände in CP einschleifen kann. Zusätzlich haben
-die Kippschalter die Funktion, durch Öffnen den Ladevorgang beenden zu
-können - erst dann entriegelt eine Ladestation den Stecker, sodass man
-ihn abziehen kann.
+Über den Kontakt "E" kann man PE und CP kurzschließen. Eine Ladestation
+muss in diesem Fall die Ladung umgehend beenden bzw. den Ladestrom erst
+gar nicht freigeben. Ähnlich ist es mit dem Kontakt "D-fault": Die Diode
+D1 (1N4007) sorgt dafür, das der negative Anteil des Pilotsignals
+weggeschnitten wird. Anhand dieses Signals erkennt die Wallbox, das
+tatsächlich ein Elektroauto angeschlossen ist --- und der Stecker nicht
+einfach nur im Regen hängt. Wenn man "D-fault" also schließt, wird die
+Diode überbrückt und der negative Anteil des PWM-Signals verändert sich
+analog zum positiven Anteil. Auch hier darf die Ladestation den
+Ladevorgang nicht freigeben.
 
-Abschließend fehlt noch die Diode D1 (1N4007). Diese sorgt dafür, das
-der negative Anteil des Pilotsignals weggeschnitten wird. Anhand dieses
-Signals erkennt die Wallbox, das tatsächlich ein Elektroauto
-angeschlossen ist --- und der Stecker nicht einfach nur im Regen hängt.
-
-![](img/diode-fault.png)
-
-Normalerweise ist J1 geöffnet, d.h. die Wallbox detektiert ein
-funktionierendes Elektroauto. Verbindet man einen Kippschalter mit J1,
-so kann man einen Diodenfehler simulieren und so die
-Sicherheitsabschaltung der Wallbox testen.
-
-Ebenso kann man an J3 einen Kippschalter anschließen. Wird dieser
-geschlossen, simuliert man einen Kurzschluss von CP --- auch bei diesem
-Fehler muss die Wallbox den Strom abschalten.
-
-![](img/cp-short.png)
-
+Die restlichen Kontakte schalten Widerstände etc. zwischen CP und PE
+hinzu. Normalerweise trennt der Schalter in der Position "A" alles von
+CP und PE, es gibt keine Verbindung. Wechselt man nach "B", so wird die
+Diode zusammen mit R1 (2k7 Ohm, min. 0,5 Watt) eingeschleift. Das
+signalisiert der Wallbox, das ein Elektroauto angeschlossen ist --- und
+das der Zustand B erreicht ist.  Schließt man "C", so wird der
+Widerstand R2 (1k2, min. 0,5W) hinzugefügt und die Ladestation kann den
+Ladestrom aktivieren.
 
 # Aufbauanleitung
 
@@ -270,11 +262,15 @@ Komplettsystems.  Will man z.B. maximal 13A entnehmen, so lötet man
 einen 1k5 Ohm Widerstand an die Anschlüsse für R3.  Bei der Diode muss
 darauf geachtet werden, das sie richtig herum eingelötet wird --- der
 Strich auf dem Diodengehäuse muss in die gleiche Richtung zeigen wie auf
-der Platine markiert.
+der Platine markiert. Das folgende Bild zeigt die Version 0.2 der
+Schaltung:
 
 ![](img/platine-bestueckt.jpg)
 
-Mit diesem Grundaufbau kann es nun je nach Anwendung weitergehen.
+Das Layout der Platine hat sich mit Version 0.5 geringfügig geändert ---
+die Diode ist nun an einem anderen Platz. Beim Aufbau also bitte immer
+auf den Bestückungsdruck achten! Mit diesem Grundaufbau kann es nun je
+nach Anwendung weitergehen.
 
 ## Aufbau als Ladestationstester {#ladestationstester}
 
@@ -334,9 +330,9 @@ Die Kippschalter werden wie folgt verdrahtet:
 | Text     | Anschluss| Funktion Kippschalter      | Ladestrom |
 |:---------|:---------|:---------------------------|:----------|
 | D-fault  | J1       | Test Diodenfehler          | aus       |
-| EV detect| J2       | Fahrzeug angeschlossen (R1)| aus       |
-| CP short | J3       | Test CP Kurzschluss        | aus       |
-| EV ready | J4       | Fahrzeug ladebereit (R2)   | ein (falls J2 ein) |
+| A/B, EV detect| J2       | Fahrzeug angeschlossen (R1)| aus       |
+| E, CP short | J3       | Test CP Kurzschluss        | aus       |
+| C, EV ready | J4       | Fahrzeug ladebereit (R2)   | ein (falls J2 ein) |
 
 
 ## Prüfung einer Ladestation {#pruefung}
@@ -376,16 +372,16 @@ beginnt mit dem Simulieren eines normalen Ladeablaufs (vgl. Abschnitt
 
 1. Den Tester mit der Ladestation verbinden. Alle Schalter sollten auf
 	 der "Aus"-Position sein. Der Zustand A ist erreicht.
-2. Den Schalter "EV detect" einschalten. Daraufhin sollte die
+2. Den Schalter "EV detect" bzw. "A/B" einschalten. Daraufhin sollte die
 	 Ladestation den Stecker verriegeln. Dies entspricht Zustand B.
-3. Den Schalter "EV ready" umlegen. Die Ladestation sollte nun den
+3. Den Schalter "EV ready" bzw. "C" umlegen. Die Ladestation sollte nun den
 	 Ladeschütz freigeben und die Glimmlampen sollten einen anliegenden
 	 Ladestrom signalisieren --- der Zustand C ist erreicht.
 4. Der Ladevorgang kann jederzeit unterbrochen werden, indem man "EV
-	 ready" ausschaltet. Durch erneutes Einschalten sollte der Ladestrom
+	 ready"/"C" ausschaltet. Durch erneutes Einschalten sollte der Ladestrom
 	 wieder angeschaltet werden.
-5. Um den Stecker wieder entfernen zu können schaltet man "EV ready" und
-	 "EV detect" aus. Der Stecker sollte entriegelt werden.
+5. Um den Stecker wieder entfernen zu können schaltet man "EV ready" bzw. "C" und
+	 "EV detect" bzw. "A/B" aus. Der Stecker sollte entriegelt werden.
 
 Dieser grundlegende Ablauf sollte bei jeder Ladestation problemlos
 funktionieren. Zusätzlich sollte man die folgenden Messungen
@@ -394,9 +390,9 @@ durchführen:
 1. Im Zustand C: Der FI wird wie oben dargestellt geprüft.
 2. Im Zustand C: Das Drehfeld der Außenleiter ist korrekt, wobei die
 	 Drehfeldrichtung keine Rolle spielt.
-3. In den Zuständen A, B, C und D: Wenn man "CP short" einschaltet muss die
-	 Ladestation einen Fehler anzeigen und in den Zustand E wechseln. Es
-	 darf kein Ladestrom anliegen!
+3. In den Zuständen A, B, C und D: Wenn man "CP short" bzw. "E"
+	 einschaltet muss die Ladestation einen Fehler anzeigen und in den
+	 Zustand E wechseln. Es darf kein Ladestrom anliegen!
 4. In den Zuständen A, B, C und D: Sobald "Diode fault" eingeschaltet
 	 wird muss die Ladestation einen Fehler anzeigen und in den Zustand E
 	 wechseln. Es darf kein Ladestrom anliegen!
@@ -473,10 +469,12 @@ Ladesäulentester oben, wobei auf die Testschalter für den CP-Test (J1 und
 J3) verzichtet werden kann. Ebenso kann man auf den Schalter J4 (EV
 ready) verzichten: Dieser signalisiert die Ladebereitschaft, sobald der
 Adapter angeschlossen ist. Den Schalter ersetzt man einfach durch eine
-Drahtbrücke. Keinesfalls darf man allerdings auf den Schalter J2 (EV detect)
-verzichten: Ansonsten kann es passieren, das man die Verriegelung des
-Steckers nicht wieder lösen und das Kabel nicht aus der Ladesäule
-gezogen werden kann.
+Drahtbrücke. Dies hat allerdings den Nachteil, das die Ladestation ---
+je nach verwendetem Laderegler --- den "simplified mode" annimmt und nur
+10A Ladestrom freischaltet. Keinesfalls darf man allerdings auf den
+Schalter J2 (EV detect) verzichten: Ansonsten kann es passieren, das man
+die Verriegelung des Steckers nicht wieder lösen und das Kabel nicht aus
+der Ladesäule gezogen werden kann.
 
 Da aus einer Typ2-Steckdose mehr Strom entnommen werden
 kann, als eine blaue CEE-Steckdose maximal zur Verfügung stellen darf, muss
@@ -484,9 +482,8 @@ unbedingt eine Sicherung vorgesehen werden. Dazu eignet sich z.B. ein
 Leitungsschutzschalter (16A, A-Charakteristik) oder eine flinke
 Schmelzsicherung (16A). Diese muss in die Außenleiter integriert
 werden. Ebenso muss man --- entgegen dem Bild oben --- auf die
-Wetterbeständigkeit achten. Man sollte also einen IP65-Schalter für J4
-und ein entsprechendes Gehäuse mit geeigneten Kabeldurchführungen verwenden.
-
+Wetterbeständigkeit achten. Man sollte also einen IP65-Schalter und ein
+entsprechendes Gehäuse mit geeigneten Kabeldurchführungen verwenden.
 
 # EVSim kaufen
 
@@ -570,6 +567,21 @@ Für Hinweise auf Fehler etc. bin ich dankbar. Am liebsten sind mir
 Fehlerreports [via Github: Hier kann man ein Issue
 aufmachen](https://github.com/gonium/EVSE-Car-Simulator/issues). Eine
 Mail ist aber auch vollkommen OK.
+
+**Was ist der Unterschied zwischen v0.5 und den vorherigen Versionen?**
+
+In der Schaltung hatte sich ein kleiner (doofer) Fehler eingeschlichen,
+der dafür sorgte, das der Ladeablauf eigentlich im sogenannten
+"simplified mode" angefragt wird. Das führt je nach verwendetem
+Laderegler dazu, das die Ladestation nur einen Ladestrom von 10A
+freigibt. Mit der v0.5 habe ich diesen Fehler behoben. Die Bauteile sind
+auf der Platine nun etwas anders angeordnet, aber an den Abmessungen
+oder dem Platzbedarf hat sich nichts geändert.
+
+Ausserdem habe ich den Bestückungsdruck verändert. Statt "EV detect"
+steht nun "A/B", statt "EV ready" steht "C", und statt "CP short" steht
+"E" auf der Platine. Damit ist es einfacher, die Schalter den Zuständen
+laut Standard zuzuordnen.
 
 **Kannst Du mir nicht ein fertiges Gerät verkaufen?**
 
