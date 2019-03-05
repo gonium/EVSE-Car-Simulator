@@ -14,7 +14,7 @@
 
 % Bopla ET-215 frame
 \draw[draw=black, dotted, rounded corners] (0,0) rectangle ++(120mm,80mm);
-\draw (0mm,70mm) arc[radius=10mm, start angle=-90, end angle=0] --
+\draw [rounded corners=2mm] (0mm,70mm) arc[radius=10mm, start angle=-90, end angle=0] --
 	(110mm,80mm) --
 	(110mm,80mm) arc[radius=10mm, start angle=180, end angle=270] --
 	(120mm,10mm) --
@@ -53,9 +53,9 @@
 
 % State dial
 \begin{scope}[shift={(79mm,25mm)}]
-	\draw (0,0) circle [radius=13.1mm];
-	\draw (0,1cm) -- (0,-1cm);
-	\draw (1cm,0) -- (-1cm,0);
+	%\draw (0,0) circle [radius=13.1mm];
+	\draw (0,5mm) -- (0,-5mm);
+	\draw (5mm,0) -- (-5mm,0);
 	\foreach \angle/\label [count=\xi] in 
 	{
 		75/DF,45/A,15/B,-15/C,-45/D,-75/E
@@ -68,9 +68,9 @@
 
 % Max current dial
 \begin{scope}[shift={(40mm,25mm)}]
-	\draw (0,0) circle [radius=13.1mm];
-	\draw (0,1cm) -- (0,-1cm);
-	\draw (1cm,0) -- (-1cm,0);
+	%\draw (0,0) circle [radius=13.1mm];
+	\draw (0,5mm) -- (0,-5mm);
+	\draw (5mm,0) -- (-5mm,0);
 	\foreach \angle/\label [count=\xi] in
 	{
 		180-75/DF,180-45/A,180-15/B,180+15/C,180+45/D,180+75/E
