@@ -34,6 +34,7 @@ clean:
 	-rm -f *.out
 	-rm -f *.blg
 	-rm -f $(FOURPDF)
-	-rm -f $(PNG)
+	-rm -f $(PDF)
+	-rm -f *.png
 
 .PHONY: default all clean
