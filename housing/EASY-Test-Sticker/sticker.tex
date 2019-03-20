@@ -1,13 +1,24 @@
 \documentclass[%
- border=2mm
+  border=1mm
 %  border={0pt 0pt 0pt 0pt} % left bottom right top
 ]{standalone}% http://ctan.org/pkg/standalone
 
 \usepackage{tikz}
 
+% packages we need for platform detection
+\usepackage{pdftexcmds}
+\usepackage{catchfile}
+\usepackage{ifluatex}
+\usepackage{ifplatform}
 \usepackage{fontspec}
+\iflinux
 \setmainfont{Roboto}
 \setsansfont{Roboto}
+\else
+\setmainfont{PT Sans}
+\setsansfont{PT Sans}
+\fi
+
 
 %\usepackage[defaultsans]{droidsans}
 %\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be typewriter style
@@ -33,13 +44,13 @@
 	(10mm,0mm) arc[radius=10mm, start angle=0, end angle=90] --
 	cycle;
 % Cutline for top of housing
-\draw [color=black, rounded corners=1mm] (2mm,68mm) arc[radius=10mm, start angle=-90, end angle=0] --
-	(106mm,78mm) --
-	(108mm,78mm) arc[radius=10mm, start angle=180, end angle=270] --
-	(118mm,12mm) --
-	(118mm,12mm) arc[radius=10mm, start angle=90, end angle=180] --
-	(12mm,2mm) --
-	(12mm,2mm) arc[radius=10mm, start angle=0, end angle=90] --
+\draw [color=black, rounded corners=1mm] (4mm,66mm) arc[radius=10mm, start angle=-90, end angle=0] --
+	(104mm,76mm) --
+	(106mm,76mm) arc[radius=10mm, start angle=180, end angle=270] --
+	(116mm,14mm) --
+	(116mm,14mm) arc[radius=10mm, start angle=90, end angle=180] --
+	(14mm,4mm) --
+	(14mm,4mm) arc[radius=10mm, start angle=0, end angle=90] --
 	cycle;
 
 
@@ -77,8 +88,8 @@
 		75/{C: diode fault},45/A,15/B,-15/C,-45/D,-75/E
 	}
 	{
-		\draw[line width=2pt] (\angle:10mm) -- (\angle:16mm);
-		\node[font=\large] at (\angle:19mm) {\textsf{\label}};
+		\draw[line width=2pt] (\angle:10mm) -- (\angle:15mm);
+		\node[font=\large] at (\angle:18mm) {\textsf{\label}};
 	}
 \end{scope}
 
@@ -91,8 +102,8 @@
 		180-75/invalid,180-45/63,180-15/32,180+15/20,180+45/13,180+75/{n/c}
 	}
 	{
-		\draw[line width=2pt] (\angle:10mm) -- (\angle:16mm);
-		\node[font=\large] at (\angle:19mm) {\textsf{\label}};
+		\draw[line width=2pt] (\angle:10mm) -- (\angle:15mm);
+		\node[font=\large] at (\angle:18mm) {\textsf{\label}};
 	}
 \end{scope}
 

@@ -15,16 +15,21 @@ all: $(PDF) $(PNG) pdfnup
 
 $(PDF): $(SRC)
 	@-rm -f $(AUX)
-	$(latex) $<
+	$(latex) -interaction=nonstopmode -shell-escape $<
 
 $(PNG): $(PDF)
 	@$(pdf2png) $< $@ -png -rx 150 -ry 150
 
 pdfnup: $(PDF)
-	@$(nup) --nup 2x2 --a4paper --scale 1.0 --landscape $(PDF) $(PDF) $(PDF) $(PDF) --outfile $(FOURPDF)
+	@$(nup) $(PDF) $(PDF) $(PDF) $(PDF) \
+	--nup 2x2 --paper a4paper --landscape \
+	  --scale 1.0 --outfile $(FOURPDF) \
 
 view: $(PDF)
 	open $(PDF)
+
+fonts: $(PDF)
+	pdffonts $<
 
 clean:
 	-rm -f *~
