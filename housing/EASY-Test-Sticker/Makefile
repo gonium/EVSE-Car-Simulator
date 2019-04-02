@@ -11,7 +11,7 @@ PNG=$(SRC:.tex=.png)
 
 default: all
 
-all: $(PDF) $(PNG) pdfnup
+all: $(PDF) $(PNG)
 
 $(PDF): $(SRC)
 	@-rm -f $(AUX)
@@ -20,6 +20,7 @@ $(PDF): $(SRC)
 $(PNG): $(PDF)
 	@$(pdf2png) $< $@ -png -rx 150 -ry 150
 
+# Does not work, scaling is off.
 pdfnup: $(PDF)
 	@$(nup) $(PDF) $(PDF) $(PDF) $(PDF) \
 	--nup 2x2 --paper a4paper --landscape \
