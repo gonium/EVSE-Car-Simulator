@@ -66,25 +66,12 @@
 
 \begin{tikzpicture}[line cap=rect,line width=1pt]
 
-% Bopla ET-215 frame: Outer dimensions
-\draw [dashed] (0mm,70mm) arc[radius=10mm, start angle=-90, end angle=0] --
-	(110mm,80mm) --
-	(110mm,80mm) arc[radius=10mm, start angle=180, end angle=270] --
-	(120mm,10mm) --
-	(120mm,10mm) arc[radius=10mm, start angle=90, end angle=180] --
-	(10mm,0mm) --
-	(10mm,0mm) arc[radius=10mm, start angle=0, end angle=90] --
+% Outer Frame: Quarter of A4 paper: 10.5cm x 14.85cm
+\draw [dashed] (0,0) --
+	(0mm,148.5mm) --
+	(105mm,148.5mm) --
+	(105.0mm,0mm) --
 	cycle;
-% Cutline for top of housing
-\draw [color=black, rounded corners=1mm] (4mm,66mm) arc[radius=10mm, start angle=-90, end angle=0] --
-	(104mm,76mm) --
-	(106mm,76mm) arc[radius=10mm, start angle=180, end angle=270] --
-	(116mm,14mm) --
-	(116mm,14mm) arc[radius=10mm, start angle=90, end angle=180] --
-	(14mm,4mm) --
-	(14mm,4mm) arc[radius=10mm, start angle=0, end angle=90] --
-	cycle;
-
 
 % Product name
 \begin{scope}[shift={(60mm,12mm)}]
@@ -105,7 +92,7 @@
 \end{scope}
 
 % L1 LED
-\begin{scope}[shift={(90mm,60mm)}]
+\begin{scope}[shift={(15mm,130mm)}]
 	\centerdrillmark
 	\node[font=\large] at (0:18mm) {\defaulttextstyle{L1}};
 \end{scope}
