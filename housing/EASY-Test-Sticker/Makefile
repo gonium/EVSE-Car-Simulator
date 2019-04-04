@@ -1,30 +1,22 @@
 latex=xelatex
 pdf2png=pdftoppm
-# Install PDFJam, https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/firth/software/pdfjam
-nup=pdfnup
 
-SRC=sticker.tex
-AUX=$(SRC:.tex=.aux)
+SRC=BOPLA-ET-215.tex generic_threephase_sticker.tex
 PDF=$(SRC:.tex=.pdf)
-FOURPDF=$(SRC:.tex=-2x2.pdf)
 PNG=$(SRC:.tex=.png)
 
 default: all
 
 all: $(PDF) $(PNG)
 
-$(PDF): $(SRC)
+%.pdf: %.tex
 	@-rm -f $(AUX)
 	$(latex) -interaction=nonstopmode -shell-escape $<
+	@echo "Source files: $(SRC)"
+	@echo "PDF files: $(PDF)"
 
-$(PNG): $(PDF)
+%.png: %.pdf
 	@$(pdf2png) $< $@ -png -rx 150 -ry 150
-
-# Does not work, scaling is off.
-pdfnup: $(PDF)
-	@$(nup) $(PDF) $(PDF) $(PDF) $(PDF) \
-	--nup 2x2 --paper a4paper --landscape \
-	  --scale 1.0 --outfile $(FOURPDF) \
 
 view: $(PDF)
 	open $(PDF)
@@ -34,12 +26,11 @@ fonts: $(PDF)
 
 clean:
 	-rm -f *~
-	-rm -f $(AUX)
+	-rm -f *.aux
 	-rm -f *.log
 	-rm -f *.bbl
 	-rm -f *.out
 	-rm -f *.blg
-	-rm -f $(FOURPDF)
 	-rm -f $(PDF)
 	-rm -f *.png
 
