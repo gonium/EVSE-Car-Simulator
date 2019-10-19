@@ -590,18 +590,19 @@ Aufbauten selbst verantwortlich.
 
 **Kannst Du mir nicht Schalter, Buchsen usw. verkaufen?**
 
-Könnte sein, kommt auf meine Lagerbestände an. Einfach fragen! Wenn die
-Nachfrage groß genug ist werde ich das permanent anbieten.
+Ich hab das mal angeboten &mdash; leider ist die Nachfrage aber so gering,
+das sich das nicht lohnt. Insofern: Leider nein.
 
 **Warum ist der Bausatz so teuer?**
 
 Wenn Du lediglich den Materialwert zugrunde legst kann ich die Frage gut
 nachvollziehen. Nimm einfach das passende Zeug aus Deiner Bastelkiste
-und bau die Schaltung nach. Andererseits habe ich recht viel Zeit in die
-Dokumentation und die Entwicklung einer einfachen, gut lötbaren Platine
-gesteckt. Die Platine muss gefertigt werden, die Bauteile müssen
-bestellt und zusammen mit der Platine verpackt werden. Auch Rechnung
-schreiben und die ganze Verwaltung machen erstaunlich viel Arbeit. 
+und bau die Schaltung nach, das ist OK so. Andererseits habe ich recht
+viel Zeit in die Dokumentation und die Entwicklung einer einfachen, gut
+lötbaren Platine gesteckt. Die Platine muss gefertigt werden, die
+Bauteile müssen bestellt und zusammen mit der Platine verpackt werden.
+Auch Rechnung schreiben und die ganze Verwaltung machen erstaunlich viel
+Arbeit.
 
 Mit anderen Worten: Ob es Dir das Geld wert ist musst Du selbst entscheiden!
 
