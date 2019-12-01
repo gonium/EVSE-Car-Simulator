@@ -1,7 +1,7 @@
 latex=xelatex
 pdf2png=pdftoppm
 
-SRC=BOPLA-ET-215.tex generic_threephase_sticker.tex
+SRC=BOPLA-ET-220.tex BOPLA-ET-215.tex generic_threephase_sticker.tex
 PDF=$(SRC:.tex=.pdf)
 PNG=$(SRC:.tex=.png)
 
