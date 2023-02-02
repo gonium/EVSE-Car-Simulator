@@ -7,20 +7,22 @@ HTMLS := $(patsubst %.md,%.html,$(wildcard *.md))
 EPUBS := $(patsubst %.md,%.epub,$(wildcard *.md))
 
 # The all rule makes all the PDF files listed
-all : $(PDFS) $(HTMLS) $(EPUBS)
+all : $(HTMLS) 
 
 # This generic rule accepts PDF targets with corresponding Markdown 
 # source, and makes them using pandoc
 %.pdf: %.md
 	@echo "Zeichen im Artikel: `wc -m $<`"
-	@pandoc $< -o $@ -s --smart --number-section --dpi 300 \
+	@pandoc $< -o $@ -s -f markdown+smart --number-section --dpi 300 \
 	  -V documentclass:scrartcl -V fontsize:12pt \
 	  -V papersize:A4 -V lang:de -V toc \
 	  -fmarkdown-implicit_figures 
 
 %.html: %.md
 	@pandoc $< -o $@ \
-	  -s --smart --number-section --toc --mathjax \
+	  -s -f markdown+smart -t markdown-smart --number-section \
+	  --toc \
+	  --mathjax \
 	  --email-obfuscation=javascript --to html5 \
 	  -H headermeta.html -H pandoc.css \
 # 	Deactivate google analytics
@@ -36,7 +38,7 @@ deploy: all
 	rsync -rzh *.html img md@evsim.gonium.net:/var/www/evsim.gonium.net
 
 develop: $(HTMLS)
-	python devmode.py
+	python3 devmode.py
 
 # Remove all PDF outputs
 clean:
