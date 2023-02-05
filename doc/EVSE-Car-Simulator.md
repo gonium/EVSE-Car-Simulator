@@ -506,7 +506,7 @@ Das Ganze kommt --- zusammen mit einer Rechnung --- so bei Euch an:
 ![](img/bausatz.jpg)
 
 Der Bausatz kostet 9 Euro, der Versand innerhalb Deutschlands bei kleinen Mengen
-2 Euro --- bei größeren Mengen entsprechend mehr. Zum Bestellen einfach eine
+3 Euro --- bei größeren Mengen entsprechend mehr. Zum Bestellen einfach eine
 Mail an [evse@gonium.net](mailto:evse@gonium.net?subject=EVSim Bestellung) 
 schreiben. In der Mail bitte
 
@@ -514,9 +514,9 @@ schreiben. In der Mail bitte
 * die **Rechnungsadresse** angeben. 
 
 Ich schicke direkt eine Auftragsbestätigung mit den
-Zahlungsinformationen. Sobald das Geld bei mir eingegangen ist verschicke
-ich zeitnah --- natürlich mit einer Rechnung. Ich akzeptiere kein Paypal.
-
+Informationen für eine Überweisung. Ich akzeptiere kein Paypal.
+Sobald das Geld bei mir eingegangen ist verschicke
+ich zeitnah --- natürlich mit einer Rechnung. 
 <!-- 
 
 TODO: Die Bauteilliste beinhaltet ungeprüfte Bauteile. Daher vorerst
