@@ -22,7 +22,7 @@ all : $(HTMLS)
 	@pandoc $< -o $@ \
 	  -s -f markdown+smart -t markdown-smart --number-section \
 	  --toc \
-	  --mathjax \
+	  --mathjax="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js" \
 	  --email-obfuscation=javascript --to html5 \
 	  -H headermeta.html -H pandoc.css \
 # 	Deactivate google analytics
@@ -35,15 +35,16 @@ all : $(HTMLS)
 	@pandoc $< -o $@
 
 deploy: all
-	rsync -rzh *.html img md@evsim.gonium.net:/var/www/evsim.gonium.net
+#rsync -rzh *.html img md@evsim.gonium.net:/var/www/evsim.gonium.net
+	rsync -rzh -e "ssh.exe" *.html img gonium:/var/www/evsim.gonium.net
 
 develop: $(HTMLS)
 	python3 devmode.py
 
 # Remove all PDF outputs
 clean:
-	@rm $(PDFS)
 	@rm $(HTMLS)
+#@rm $(PDFS)
 #	@rm $(DOCX)
 #	@rm $(TXTS)
 

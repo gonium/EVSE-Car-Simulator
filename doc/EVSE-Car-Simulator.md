@@ -4,7 +4,6 @@ author: Mathias Dalheimer, [evse@gonium.net](mailto:evse@gonium.net?subject=EVSi
 tags: [EVSE, Ladesäule, Elektromobilität, Tester, Ladestation]
 keywords: [EVSE, Ladesäule, Elektromobilität, Ladesẗation, Tester,
 	Schuko, Typ2, Adapter, Ladestationtester]
-
 ---
 
 
@@ -485,18 +484,27 @@ werden. Ebenso muss man --- entgegen dem Bild oben --- auf die
 Wetterbeständigkeit achten. Man sollte also einen IP65-Schalter und ein
 entsprechendes Gehäuse mit geeigneten Kabeldurchführungen verwenden.
 
-# EVSim kaufen
+# ~~EVSim kaufen~~
 
 Die Designdaten (und diese Anleitung) sind Open Source und unter
-[https://github.com/gonium/EVSE-Car-Simulator](https://github.com/gonium/EVSE-Car-Simulator)
-verfügbar. Die Schaltung kann man natürlich recht schnell auf einer
-Lochrasterplatine aufbauen. Wer lieber einen kleinen Bausatz haben
+[https://github.com/gonium/EVSE-Car-Simulator](https://github.com/gonium/EVSE-Car-Simulator) verfügbar. 
+
+Früher™ gab es hier die Möglichkeit, einen Bausatz zu erwerben. Leider kann ich dies nicht mehr anbieten -- Themen wie die Verpackungsverordnung, Anforderungen an elektronische Rechnungen, der Wegfall der Warensendung, steuerliche Anforderungen an den Online-Versand von Waren etc. machen es schlicht zu aufwändig, einzelne Bausätze zu versenden.
+
+Insofern empfehle ich, die Schaltung auf einer Lochrasterplatine aufzubauen. Alles, was man dafür braucht, ist ja oben ausführlich beschrieben. Wer möchte, kann mir einen Kaffee zukommen lassen:
+
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Zu meiner Kaffeekasse', '#72a4f2', 'T6T82S065');kofiwidget2.draw();</script> 
+
+
+
+<!---
+Wer lieber einen kleinen Bausatz haben
 möchte, kann diesen bei mir bestellen. Der Bausatz enthält:
 
 ![](img/platine-leer-v03.jpg)
 
 * Eine Platine (37x18mm) wie oben beschrieben. Die Version 0.2 war eine
-schwarze Platine, die aktuelle Version 0.3 ist grün.
+schwarze Platine, die aktuelle Version 0.5 ist grün.
 * Ein Set Widerstände R1-R3 mit verschiedenen Werten für R3, um
 unterschiedliche Strombelastbarkeiten kodieren zu können.
 * Die Schutzdiode (1N4007).
@@ -517,6 +525,8 @@ Ich schicke direkt eine Auftragsbestätigung mit den
 Informationen für eine Überweisung. Ich akzeptiere kein Paypal.
 Sobald das Geld bei mir eingegangen ist verschicke
 ich zeitnah --- natürlich mit einer Rechnung. 
+
+-->
 <!-- 
 
 TODO: Die Bauteilliste beinhaltet ungeprüfte Bauteile. Daher vorerst
@@ -587,6 +597,8 @@ steht nun "A/B", statt "EV ready" steht "C", und statt "CP short" steht
 "E" auf der Platine. Damit ist es einfacher, die Schalter den Zuständen
 laut Standard zuzuordnen.
 
+
+<!--
 **Kannst Du mir nicht ein fertiges Gerät verkaufen?**
 
 Momentan gilt: Leider nein, aus Haftungsgründen. Jeder ist für seine
@@ -616,12 +628,13 @@ Im Moment nehme ich nur Zahlungen via SEPA-Überweisung im Voraus an. Das
 hat hauptsächlich den Grund, das so meine Arbeit überschaubar bleibt und
 keine Transaktionsgebühren anfallen. Leider musste ich schon meinem Geld
 hinterherrennen &mdash; und dazu hab ich schlichtweg keine Lust.
-
+-->
 
 # Versionshistorie
 
 | Wann       | Was                                                      |
 |:-----------|:---------------------------------------------------------|
+| 2026.08.21 | Bausätze sind nicht länger verfügbar, Kofi-Button        |
 | 2019.01.03 | V0.5: Fehler simplified mode behoben, neues Layout       |
 | 2018.01.25 | V0.3: Anschluss für Diagnose (CP/PE) im Rastermaß 2,54mm |
 | 2017.09.09 | V0.2: Bohrungen für CP/PP/PE vergrößert                  |
